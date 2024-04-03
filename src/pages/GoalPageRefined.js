@@ -7,6 +7,7 @@ import { useNavigate } from "react-router-dom";
 
 const GoalPageRefined = () => {
   const [isUpdateGoalPopUpOpen, setUpdateGoalPopUpOpen] = useState(false);
+  const [selectedGoal, setSelectedGoal] = useState(""); // Add state for selected goal
   const navigate = useNavigate();
 
   const onBackButtonIconClick = useCallback(() => {
@@ -19,6 +20,11 @@ const GoalPageRefined = () => {
 
   const closeUpdateGoalPopUp = useCallback(() => {
     setUpdateGoalPopUpOpen(false);
+  }, []);
+
+  // Callback function to handle goal selection
+  const handleGoalSelect = useCallback((goal) => {
+    setSelectedGoal(goal);
   }, []);
 
   return (
@@ -41,13 +47,14 @@ const GoalPageRefined = () => {
         </div>
         <DropdownButton
           className="w-[27.18%] flex flex-col absolute h-[4.38%] top-[24.41%] right-[61.79%] bottom-[71.21%] left-[11.03%]"
-          title="Lose: "
+          title={selectedGoal || "Select Goal"} // Display selected goal
           variant="dark"
           drop="down"
+          onSelect={handleGoalSelect} // Call handleGoalSelect when an option is selected
         >
-          <Dropdown.Item>Lose:</Dropdown.Item>
-          <Dropdown.Item>Gain:</Dropdown.Item>
-          <Dropdown.Item>Maintain:</Dropdown.Item>
+          <Dropdown.Item eventKey="Lose">Lose:</Dropdown.Item>
+          <Dropdown.Item eventKey="Gain">Gain:</Dropdown.Item>
+          <Dropdown.Item eventKey="Maintain">Maintain:</Dropdown.Item>
         </DropdownButton>
         <img
           className="absolute h-[7.23%] w-[75.38%] top-[51.78%] right-[13.59%] bottom-[41%] left-[11.03%] max-w-full overflow-hidden max-h-full"

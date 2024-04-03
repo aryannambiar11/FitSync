@@ -1,11 +1,19 @@
-import { useState, useCallback } from "react";
+import { useState, useCallback, useEffect } from "react";
 import LogOutPopUp from "../components/LogOutPopUp";
 import PortalPopup from "../components/PortalPopup";
 import { useNavigate } from "react-router-dom";
 
 const ProfilePageRefined = () => {
   const [isLogOutPopUpOpen, setLogOutPopUpOpen] = useState(false);
+  const [userData, setUserData] = useState({});
   const navigate = useNavigate();
+
+  useEffect(() => {
+    const storedUserData = sessionStorage.getItem("userData");
+    if (storedUserData) {
+      setUserData(JSON.parse(storedUserData));
+    }
+  }, []);
 
   const onPencilClick = useCallback(() => {
     navigate("/edit-profile-page");
@@ -22,6 +30,8 @@ const ProfilePageRefined = () => {
   const onBackButtonIconClick = useCallback(() => {
     navigate("/home-page");
   }, [navigate]);
+
+  const fullName = `${userData.firstName || ''} ${userData.lastName || ''}`; // Combine first name and last name
 
   return (
     <>
@@ -43,6 +53,7 @@ const ProfilePageRefined = () => {
             className="cursor-pointer m-0 absolute h-[68.42%] w-1/5 top-[5.26%] right-[78.46%] bottom-[26.32%] left-[1.54%] rounded-[50%] bg-black"
             type="radio"
             name="units"
+            defaultChecked
           />
           <div className="absolute h-full w-[73.08%] top-[0%] left-[26.92%] font-medium inline-block">
             lbs
@@ -54,6 +65,7 @@ const ProfilePageRefined = () => {
             className="cursor-pointer m-0 absolute h-[68.42%] w-1/5 top-[5.26%] right-[78.46%] bottom-[26.32%] left-[1.54%] rounded-[50%] bg-black"
             type="radio"
             name="push"
+            defaultChecked
           />
           <div className="absolute h-full w-[73.08%] top-[0%] left-[26.92%] font-medium inline-block">
             No
@@ -100,15 +112,19 @@ const ProfilePageRefined = () => {
           src="/profile-page-button2@2x.png"
         />
         <div className="absolute h-[28.44%] w-[86.41%] top-[26.07%] right-[6.92%] bottom-[45.5%] left-[6.67%] text-sm">
-          <div className="absolute h-[18.17%] w-full top-[10.46%] right-[0%] bottom-[71.38%] left-[0%] rounded-lg bg-silver-300 box-border border-[1px] border-solid border-darkgray" />
-          <div className="absolute h-[18.17%] w-full top-[44.63%] right-[0%] bottom-[37.21%] left-[0%] rounded-lg bg-silver-300 box-border border-[1px] border-solid border-darkgray" />
-          <div className="absolute h-[18.17%] w-full top-[81.83%] right-[0%] bottom-[0%] left-[0%] rounded-lg bg-silver-300 box-border border-[1px] border-solid border-darkgray" />
-          <div className="absolute h-[9.54%] w-[22.97%] top-[0%] left-[0%] font-medium inline-block">
-            Name
+          <div className="absolute h-[18.17%] w-full top-[10%] right-[0%] bottom-[71.38%] left-[0%] rounded-lg bg-silver-300 box-border border-[1px] border-solid border-darkgray">
+            <div className="h-[15%] w-full flex items-center px-0 font-medium inline-block"style={{ marginTop: '-4%' }}>Name:</div>
+            <div className="h-[150%] w-full flex items-center px-2">{fullName}</div>
           </div>
-          <div className="absolute h-[9.54%] w-[12.26%] top-[34.17%] left-[0%] font-medium inline-block">{`Email `}</div>
-          <div className="absolute h-[9.54%] w-[21.69%] top-[71.38%] left-[0%] font-medium inline-block">
-            Password
+          <div className="absolute h-[18.17%] w-full top-[44.63%] right-[0%] bottom-[37.21%] left-[0%] rounded-lg bg-silver-300 box-border border-[1px] border-solid border-darkgray">
+            <div className="h-[15%] w-full flex items-center px-0 font-medium inline-block"style={{ marginTop: '-4%' }}>Email:</div>
+            <div className="h-[150%] w-full flex items-center px-2">{userData.email}</div>
+          </div>
+          <div className="absolute h-[18.17%] w-full top-[81.83%] right-[0%] bottom-[0%] left-[0%] rounded-lg bg-silver-300 box-border border-[1px] border-solid border-darkgray">
+            <div className="h-[15%] w-full flex items-center px-0 font-medium inline-block"style={{ marginTop: '-4%' }}>Password:</div>
+            <div className="h-[150%] w-full flex items-center px-2">
+              {userData.password ? userData.password.replace(/./g, '***') : ''}
+            </div>
           </div>
         </div>
         <img
