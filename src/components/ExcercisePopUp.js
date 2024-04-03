@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
 const ExercisePopup = ({ onClose }) => {
   const [sets, setSets] = useState(0);
@@ -6,22 +6,22 @@ const ExercisePopup = ({ onClose }) => {
 
   // Increment the value of sets
   const incrementSets = () => {
-    setSets(prevSets => prevSets + 1);
+    setSets((prevSets) => prevSets + 1);
   };
 
   // Decrement the value of sets
   const decrementSets = () => {
-    setSets(prevSets => (prevSets > 0 ? prevSets - 1 : 0));
+    setSets((prevSets) => (prevSets > 0 ? prevSets - 1 : 0));
   };
 
   // Increment the value of repetitions
   const incrementReps = () => {
-    setReps(prevReps => prevReps + 1);
+    setReps((prevReps) => prevReps + 1);
   };
 
   // Decrement the value of repetitions
   const decrementReps = () => {
-    setReps(prevReps => (prevReps > 0 ? prevReps - 1 : 0));
+    setReps((prevReps) => (prevReps > 0 ? prevReps - 1 : 0));
   };
 
   // Close handler
@@ -108,6 +108,21 @@ const ExercisePopup = ({ onClose }) => {
             display: inline-block;
           }
 
+          .time-inputs {
+            display: flex; /* This will align children horizontally */
+            align-items: center; /* This will vertically center align children */
+          }
+          
+          .time-input {
+            background: #000;
+            border: 1px solid #fff;
+            border-radius: 5px;
+            padding: 10px;
+            color: white;
+            margin: 0 5px; /* This adds some space between the inputs and the colon */
+            width: 50px; /* Adjust the width as needed */
+          }
+
           .popup-buttons {
             display: flex;
             justify-content: space-between;
@@ -142,12 +157,14 @@ const ExercisePopup = ({ onClose }) => {
             <label htmlFor="sets">Sets:</label>
             <div className="counter-controls">
               <button onClick={decrementSets}>-</button>
-              <input 
-                id="sets" 
-                type="number" 
-                value={sets} 
-                onChange={(e) => setSets(Math.max(0, parseInt(e.target.value) || 0))}
-                placeholder="Type Here" 
+              <input
+                id="sets"
+                type="text"
+                value={sets}
+                onChange={(e) =>
+                  setSets(Math.max(0, parseInt(e.target.value) || 0))
+                }
+                placeholder="Type Here"
               />
               <button onClick={incrementSets}>+</button>
             </div>
@@ -156,27 +173,45 @@ const ExercisePopup = ({ onClose }) => {
             <label htmlFor="repetitions">Repetitions:</label>
             <div className="counter-controls">
               <button onClick={decrementReps}>-</button>
-              <input 
-                id="repetitions" 
-                type="number" 
-                value={reps} 
-                onChange={(e) => setReps(Math.max(0, parseInt(e.target.value) || 0))}
-                placeholder="Type Here" 
+              <input
+                id="repetitions"
+                type="text"
+                value={reps}
+                onChange={(e) =>
+                  setReps(Math.max(0, parseInt(e.target.value) || 0))
+                }
+                placeholder="Type Here"
               />
               <button onClick={incrementReps}>+</button>
             </div>
           </div>
           <div className="exercise-field">
             <label htmlFor="time">Time:</label>
-            <div className="time-inputs">
-              <input id="time-minutes" placeholder="min" />
-              <span>:</span>
-              <input id="time-seconds" placeholder="sec" />
+            <div className="time-inputs flex items-center justify-center">
+              <input
+                id="time-minutes"
+                type="number"
+                className="time-input bg-black text-white border-1 border-white rounded p-2"
+                placeholder="min"
+                // other props such as value and onChange handler
+              />
+              <span className="mx-2 text-white">:</span>
+              <input
+                id="time-seconds"
+                type="number"
+                className="time-input bg-black text-white border-1 border-white rounded p-2"
+                placeholder="sec"
+                // other props such as value and onChange handler
+              />
             </div>
           </div>
           <div className="popup-buttons">
-            <button className="button cancel-button" onClick={handleClose}>Cancel</button>
-            <button className="button save-button" onClick={handleSave}>Save</button>
+            <button className="button cancel-button" onClick={handleClose}>
+              Cancel
+            </button>
+            <button className="button save-button" onClick={handleSave}>
+              Save
+            </button>
           </div>
         </div>
       </div>
