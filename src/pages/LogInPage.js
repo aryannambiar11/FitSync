@@ -67,7 +67,7 @@ const LogInPage = () => {
       </div>
       <div className="w-[313px] absolute !m-[0] top-[256px] left-[calc(50%_-_157px)] rounded-xl bg-gray-100 box-border h-[45px] z-[5] border-[2px] border-solid border-colors-neutral-white" />
       <input
-        className="[border:none] [outline:none] font-semibold font-poppins text-base bg-[transparent] w-[157px] absolute !m-[0] top-[264px] left-[50px] text-silver-200 text-left inline-block h-[29px] shrink-0 z-[6]"
+        className="[border:none] [outline:none] font-semibold font-poppins text-base bg-[transparent] w-[216px] absolute !m-[0] top-[264px] left-[50px] text-silver-200 text-left inline-block h-[29px] shrink-0 z-[6]"
         placeholder="Enter your email"
         type="email"
         name="email"

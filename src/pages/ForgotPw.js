@@ -45,7 +45,7 @@ const ForgotPw = () => {
       </div>
       <div className="w-[334px] absolute !m-[0] top-[242px] left-[calc(50%_-_167px)] rounded-xl bg-gray-100 box-border h-[45px] z-[1] border-[2px] border-solid border-colors-neutral-white" />
       <input
-        className="[border:none] [outline:none] font-semibold font-poppins text-base bg-[transparent] w-[157px] absolute !m-[0] top-[250px] left-[48px] text-silver-200 text-left inline-block h-[29px] shrink-0 z-[2]"
+        className="[border:none] [outline:none] font-semibold font-poppins text-base bg-[transparent] w-[216px] absolute !m-[0] top-[250px] left-[48px] text-silver-200 text-left inline-block h-[29px] shrink-0 z-[2]"
         placeholder="Enter your email"
         type="email"
         name="email"
