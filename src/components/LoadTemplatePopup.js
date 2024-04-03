@@ -8,15 +8,15 @@ const LoadTemplatePopup = ({ onClose }) => {
         </div>
       </div>
       <button
-        className="cursor-pointer [border:none] p-0 bg-[transparent] absolute top-[104px] left-[calc(50%_-_99px)] w-[197px] h-[41.6px]"
+        className="cursor-pointer [border:none] p-0 bg-[transparent] absolute top-[104px] left-[30px] w-[197px] h-[41.6px]"
         onClick={onClose}
       >
         <img
-          className="absolute top-[0px] left-[calc(50%_-_98.5px)] rounded-xl w-[197px] h-[41.6px]"
+          className="absolute top-[0px] left-[0px] rounded-xl w-[197px] h-[41.6px]"
           alt=""
           src="/rectangle-79.svg"
         />
-        <b className="absolute top-[9.9px] left-[3.4px] text-base inline-block font-inter text-colors-neutral-white text-center w-[191.5px] h-[21.8px]">
+        <b className="absolute top-[10.1px] left-[3.4px] text-base inline-block font-inter text-colors-neutral-white text-center w-[191.5px] h-[21.8px]">
           Monday Workouts
         </b>
       </button>
