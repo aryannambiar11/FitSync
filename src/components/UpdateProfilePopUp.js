@@ -21,8 +21,10 @@ const UpdateProfilePopUp = ({ onClose }) => {
 
   return (
     <>
+      <div className="absolute inset-0 flex items-center justify-center">
+
       <div
-        className="w-[310px] h-[230.1px] cursor-pointer max-w-full max-h-full overflow-auto text-left text-xl text-colors-neutral-white font-poppins"
+        className="absolute center left-[47px] w-[310px] h-[230.1px] cursor-pointer max-w-full max-h-full overflow-auto text-left text-xl text-colors-neutral-white font-poppins"
         onClick={openChangePhotoPopUp}
       >
         <div className="absolute h-full w-full top-[0%] right-[0%] bottom-[0%] left-[0%] rounded-9xl bg-deepskyblue-200" />
@@ -64,6 +66,7 @@ const UpdateProfilePopUp = ({ onClose }) => {
             NO
           </b>
         </button>
+      </div>
       </div>
       {isChangePhotoPopUpOpen && (
         <PortalPopup

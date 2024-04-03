@@ -9,7 +9,8 @@ const LogOutPopUp = ({ onClose }) => {
   }, [navigate]);
 
   return (
-    <div className="w-[310px] h-[230.1px] max-w-full max-h-full overflow-auto text-center text-xl text-colors-neutral-white font-poppins">
+    <div className="absolute inset-0 flex items-center justify-center">
+    <div className="absolute center left-[45px] w-[310px] h-[230.1px] max-w-full max-h-full overflow-auto text-center text-xl text-colors-neutral-white font-poppins">
       <div className="absolute h-full w-full top-[0%] right-[0%] bottom-[0%] left-[0%] rounded-9xl bg-deepskyblue-200" />
       <div className="absolute h-[15.6%] w-[67.74%] top-[13.91%] left-[16.13%] font-semibold inline-block">
         Are you sure you want to log out?
@@ -51,6 +52,7 @@ const LogOutPopUp = ({ onClose }) => {
           NO
         </b>
       </button>
+    </div>
     </div>
   );
 };

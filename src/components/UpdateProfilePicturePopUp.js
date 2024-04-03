@@ -1,6 +1,7 @@
 const UpdateProfilePicturePopUp = ({ onClose }) => {
   return (
-    <div className="w-[390px] h-[360px] max-w-full max-h-full overflow-auto">
+    <div className="absolute inset-0 flex items-center justify-center">
+    <div className="absolute center left-[0px] w-[390px] h-[360px] max-w-full max-h-full overflow-auto">
       <div className="absolute h-full w-full top-[0%] right-[0%] bottom-[0%] left-[0%] rounded-9xl bg-black" />
       <button
         className="cursor-pointer [border:none] p-0 bg-[transparent] absolute h-[14.72%] w-[58.97%] top-[21.94%] right-[20.51%] bottom-[63.33%] left-[20.51%]"
@@ -9,7 +10,7 @@ const UpdateProfilePicturePopUp = ({ onClose }) => {
         <img
           className="absolute h-full w-full top-[0%] right-[0%] bottom-[0%] left-[0%] rounded-3xs max-w-full overflow-hidden max-h-full cursor-pointer"
           alt=""
-          src="/no-button1.svg"
+          src="/rectangle-79.svg"
           onClick={onClose}
         />
         <b className="absolute h-[49.06%] top-[24.53%] left-[calc(50%_-_109px)] text-base inline-block font-poppins text-colors-neutral-white text-center w-[221px]">
@@ -23,7 +24,7 @@ const UpdateProfilePicturePopUp = ({ onClose }) => {
         <img
           className="absolute h-full w-full top-[0%] right-[0%] bottom-[0%] left-[0%] rounded-3xs max-w-full overflow-hidden max-h-full cursor-pointer"
           alt=""
-          src="/no-button1.svg"
+          src="/rectangle-79.svg"
           onClick={onClose}
         />
         <b className="absolute h-[49.06%] top-[24.53%] left-[calc(50%_-_115px)] text-base inline-block font-poppins text-colors-neutral-white text-center w-[221px]">
@@ -44,6 +45,7 @@ const UpdateProfilePicturePopUp = ({ onClose }) => {
           Cancel
         </b>
       </button>
+    </div>
     </div>
   );
 };
