@@ -1,6 +1,7 @@
 const StairsPopup = ({ onClose }) => {
   return (
-    <div className="w-[359px] h-[387px] max-w-full max-h-full overflow-auto text-left text-13xl text-colors-neutral-white font-poppins">
+    <div className="absolute inset-0 flex items-center justify-center">
+    <div className="absolute center w-[359px] h-[387px] max-w-full max-h-full overflow-auto text-left text-13xl text-colors-neutral-white font-poppins">
       <div className="absolute h-full w-full top-[0%] right-[0%] bottom-[0%] left-[0%] rounded-9xl bg-dimgray-400" />
       <img
         className="absolute top-[45px] left-[16px] w-[306px] h-[169px] object-cover"
@@ -37,6 +38,7 @@ const StairsPopup = ({ onClose }) => {
           src="/group-1.svg"
         />
       </button>
+    </div>
     </div>
   );
 };

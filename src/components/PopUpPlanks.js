@@ -1,6 +1,7 @@
 const PopUpPlanks = ({ onClose }) => {
   return (
-    <div className="w-[359px] h-[387px] max-w-full max-h-full overflow-auto text-left text-13xl text-colors-neutral-white font-poppins">
+    <div className="absolute inset-0 flex items-center justify-center">
+    <div className="absolute center w-[359px] h-[387px] max-w-full max-h-full overflow-auto text-left text-13xl text-colors-neutral-white font-poppins">
       <div className="absolute h-full w-full top-[0%] right-[0%] bottom-[0%] left-[0%] rounded-9xl bg-dimgray-400" />
       <img
         className="absolute h-[7.24%] w-[7.8%] top-[7.24%] right-[7.24%] bottom-[85.53%] left-[84.96%] max-w-full overflow-hidden max-h-full cursor-pointer"
@@ -33,6 +34,7 @@ const PopUpPlanks = ({ onClose }) => {
           ADD TO PLAN
         </b>
       </div>
+    </div>
     </div>
   );
 };
