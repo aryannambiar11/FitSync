@@ -6,7 +6,8 @@ const ExcercisePopUp = ({ onClose }) => {
   }, []);
 
   return (
-    <div className="w-[302px] h-[291px] max-w-full max-h-full overflow-auto text-left text-base text-colors-neutral-white font-inter">
+    <div className="absolute inset-0 flex items-center justify-center">
+    <div className="absolute center left-[70px] w-[302px] h-[291px] max-w-full max-h-full overflow-auto text-left text-base text-colors-neutral-white font-inter">
       <button className="cursor-pointer p-0 bg-black absolute h-full w-[87.75%] top-[0%] right-[12.25%] bottom-[0%] left-[0%] rounded-3xs shadow-[0px_4px_4px_rgba(0,_0,_0,_0.25)] box-border border-[1px] border-solid border-colors-neutral-white" />
       <img
         className="absolute h-[7.22%] w-[21.36%] top-[57.73%] right-[34.27%] bottom-[35.05%] left-[44.37%] max-w-full overflow-hidden max-h-full"
@@ -133,6 +134,7 @@ const ExcercisePopUp = ({ onClose }) => {
           Save
         </b>
       </button>
+    </div>
     </div>
   );
 };
