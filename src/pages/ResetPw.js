@@ -1,16 +1,44 @@
-import { useCallback } from "react";
+import React, { useState, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 
 const ResetPw = () => {
   const navigate = useNavigate();
+  const [formData, setFormData] = useState({
+    password: "",
+    confirmPassword: "",
+  });
 
-  const onUpdatePasswordButtonClick = useCallback(() => {
-    navigate("/confirm-pw-change");
-  }, [navigate]);
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+  };
 
-  const onRectangleClick = useCallback(() => {
-    navigate("/confirm-pw-change");
-  }, [navigate]);
+  const handleUpdatePassword = useCallback(() => {
+    if (formData.password !== formData.confirmPassword) {
+      // If passwords don't match, display an alert and return
+      alert("Passwords do not match. Please re-enter the passwords.");
+      return;
+    }
+
+    // Retrieve existing user data from sessionStorage
+    const userDataString = window.sessionStorage.getItem("userData");
+    if (userDataString) {
+      const userData = JSON.parse(userDataString);
+      // Update password only
+      const updatedUserData = { ...userData, password: formData.password };
+      // Store updated user data back into sessionStorage
+      window.sessionStorage.setItem("userData", JSON.stringify(updatedUserData));
+      // Navigate to confirm password change page
+      navigate("/confirm-pw-change");
+    } else {
+      // Handle no user data found
+      alert("No user data found. Please sign up first.");
+    }
+  }, [formData, navigate]);
+
 
   const onBackButtonIconClick = useCallback(() => {
     navigate("/");
@@ -24,16 +52,18 @@ const ResetPw = () => {
       <div className="w-[338px] absolute !m-[0] top-[227px] left-[calc(50%_-_170px)] rounded-xl bg-gray-100 box-border h-[45px] z-[1] border-[2px] border-solid border-colors-neutral-white" />
       <input
         className="[border:none] [outline:none] font-semibold font-poppins text-base bg-[transparent] w-[227px] absolute !m-[0] top-[235px] left-[37px] text-silver-200 text-left inline-block h-[29px] shrink-0 z-[2]"
-        placeholder="Enter your new Password "
+        placeholder="Enter your new Password"
         type="password"
+        name="password"
+        value={formData.password}
+        onChange={handleChange}
       />
       <button
         className="cursor-pointer [border:none] p-0 bg-[transparent] w-[337px] absolute !m-[0] top-[445px] left-[29px] h-[59px] z-[3]"
-        onClick={onUpdatePasswordButtonClick}
+        onClick={handleUpdatePassword}
       >
         <div
           className="absolute top-[0px] left-[0px] rounded-xl bg-lightgreen w-[337px] h-[59px] cursor-pointer"
-          onClick={onRectangleClick}
         />
         <b className="absolute top-[16px] left-[calc(50%_-_77.5px)] text-base inline-block font-poppins text-colors-neutral-white text-left w-[178px] h-7">
           <p className="m-0">Update Password</p>
@@ -51,8 +81,11 @@ const ResetPw = () => {
       <div className="w-[338px] absolute !m-[0] top-[336px] left-[calc(50%_-_170px)] rounded-xl bg-gray-100 box-border h-[45px] z-[6] border-[2px] border-solid border-colors-neutral-white" />
       <input
         className="[border:none] [outline:none] font-semibold font-poppins text-base bg-[transparent] w-[268px] absolute !m-[0] top-[344px] left-[37px] text-silver-200 text-left inline-block h-[29px] shrink-0 z-[7]"
-        placeholder="Re-enter your new Password "
+        placeholder="Re-enter your new Password"
         type="password"
+        name="confirmPassword"
+        value={formData.confirmPassword}
+        onChange={handleChange}
       />
       <div className="w-[173px] absolute !m-[0] top-[307px] left-[25px] font-semibold inline-block h-[29px] shrink-0 z-[8]">
         Confirm Password
