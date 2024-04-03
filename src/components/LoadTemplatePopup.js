@@ -1,6 +1,8 @@
 const LoadTemplatePopup = ({ onClose }) => {
   return (
-    <div className="w-[258px] h-[382px] max-w-full max-h-full overflow-auto text-left text-base text-colors-neutral-white font-inter">
+    <div className="absolute inset-0 flex items-center justify-center">
+
+    <div className="absolute center-[0px] left-[70px] w-[2500px] h-[382px] max-w-full max-h-full overflow-auto text-left text-base text-colors-neutral-white font-inter">
       <div className="absolute top-[0px] left-[0px] w-[258px] h-[382px] max-w-full max-h-full overflow-auto">
         <div className="absolute top-[0px] left-[0px] rounded-3xs bg-black box-border w-[258px] h-[382px] border-[1px] border-solid border-colors-neutral-white" />
         <div className="absolute top-[54px] left-[32px] inline-block w-[194px] h-[38px]">
@@ -12,11 +14,11 @@ const LoadTemplatePopup = ({ onClose }) => {
         onClick={onClose}
       >
         <img
-          className="absolute top-[0px] left-[0px] rounded-xl w-[197px] h-[41.6px]"
+          className="absolute top-[0px] left-[calc(50%_-_98.5px)] rounded-xl w-[197px] h-[41.6px]"
           alt=""
           src="/rectangle-79.svg"
         />
-        <b className="absolute top-[10.1px] left-[3.4px] text-base inline-block font-inter text-colors-neutral-white text-center w-[191.5px] h-[21.8px]">
+        <b className="absolute top-[9.9px] left-[3.4px] text-base inline-block font-inter text-colors-neutral-white text-center w-[191.5px] h-[21.8px]">
           Monday Workouts
         </b>
       </button>
@@ -83,7 +85,9 @@ const LoadTemplatePopup = ({ onClose }) => {
         />
       </button>
     </div>
+    </div>
   );
 };
+
 
 export default LoadTemplatePopup;
