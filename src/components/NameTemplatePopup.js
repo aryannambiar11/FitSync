@@ -1,6 +1,7 @@
 const NameTemplatePopup = ({ onClose }) => {
   return (
-    <div className="w-[336px] h-[185px] max-w-full max-h-full overflow-auto text-left text-base text-colors-neutral-white font-inter">
+    <div className="absolute inset-0 flex items-center justify-center">
+    <div className="absolute center w-[336px] h-[185px] max-w-full max-h-full overflow-auto text-left text-base text-colors-neutral-white font-inter">
       <div className="absolute top-[0px] left-[0px] rounded-3xs bg-black box-border w-[336px] h-[185px] border-[1px] border-solid border-colors-neutral-white" />
       <div className="absolute top-[20.4px] left-[17.1px] inline-block w-[247.8px] h-[43.1px]">
         Name Workout Template:
@@ -34,6 +35,7 @@ const NameTemplatePopup = ({ onClose }) => {
           CONFIRM
         </b>
       </button>
+    </div>
     </div>
   );
 };
