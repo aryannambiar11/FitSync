@@ -22,16 +22,33 @@ const GoalPageRefined = () => {
     setUpdateGoalPopUpOpen(false);
   }, []);
 
-  // Callback function to handle goal selection
-  const handleGoalSelect = useCallback((goal) => {
-    setSelectedGoal(goal);
-  }, [])
-  
   const [formData, setFormData] = useState({
     goal: "",
     dailyGoal: "",
   });
 
+  // Callback function to handle goal selection
+  const handleGoalSelect = useCallback((goal) => {
+
+    let selectedOptionText = "";
+
+    switch (goal) {
+      case 'Lose':
+        selectedOptionText = "Lose ";
+        break;
+      case 'Gain':
+        selectedOptionText = "Gain ";
+        break;
+      case 'Maintain':
+        selectedOptionText = "Maintain ";
+        break;
+
+    }
+
+    setSelectedGoal(goal);
+    sessionStorage.setItem("option", selectedOptionText);
+  })
+  
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prevData) => ({
@@ -72,12 +89,15 @@ const GoalPageRefined = () => {
           title={selectedGoal || "Select Goal"} // Display selected goal
           variant="dark"
           drop="down"
+          value = {formData.option}
+          onChange = {handleChange}
           onSelect={handleGoalSelect} // Call handleGoalSelect when an option is selected
         >
           <Dropdown.Item eventKey="Lose">Lose:</Dropdown.Item>
           <Dropdown.Item eventKey="Gain">Gain:</Dropdown.Item>
           <Dropdown.Item eventKey="Maintain">Maintain:</Dropdown.Item>
         </DropdownButton>
+
         <img
           className="absolute h-[7.23%] w-[75.38%] top-[51.78%] right-[13.59%] bottom-[41%] left-[11.03%] max-w-full overflow-hidden max-h-full"
           alt=""

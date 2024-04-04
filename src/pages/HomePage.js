@@ -14,6 +14,17 @@ const HomePage = () => {
     }
   }, []);
 
+  const [userOptionData, setUserOptionData] = useState({});
+  let option = userOptionData;
+
+  useEffect(() => {
+    const storedUserOptionData = sessionStorage.getItem("option");
+    if (storedUserOptionData) {
+      setUserOptionData(storedUserOptionData);
+
+    }
+  }, []);
+
   const onWorkOutButtonClick = useCallback(() => {
     navigate("/workout-page-checklist");
   }, [navigate]);
@@ -32,7 +43,6 @@ const HomePage = () => {
 
   const goal = `${userGoalData.goal || ''}`; 
   const dailyGoal = `${userGoalData.dailyGoal || ''}`; 
-
 
   return (
     <div className="w-full relative h-[844px] text-center text-xl text-colors-neutral-white font-poppins">
@@ -96,7 +106,7 @@ const HomePage = () => {
           src="/rectangle-64.svg"
         />
         <div className="absolute top-[48px] left-[9px] inline-block w-[400px] h-[30px]">{`Daily Goal: `}{dailyGoal}</div>
-        <div className="absolute top-[11px] left-[9px] inline-block w-[165px] h-[30px]">{`Overall Goal: `}{goal}</div>
+        <div className="absolute top-[11px] left-[9px] inline-block w-[400px] h-[30px]">{`Overall Goal: `}{option+goal}</div>
       </div>
       <div
         className="absolute h-[3.44%] w-[18.46%] top-[10.66%] right-[10.77%] bottom-[85.9%] left-[70.77%] cursor-pointer text-black"
