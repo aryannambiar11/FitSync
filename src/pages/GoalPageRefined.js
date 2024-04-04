@@ -103,7 +103,7 @@ const GoalPageRefined = () => {
         <input
           className="[border:none] [outline:none] font-poppins text-xl bg-[transparent] absolute h-[3.79%] w-[38.21%] top-[24.76%] left-[41.79%] text-dimgray-600 text-left inline-block"
           placeholder="Weight"
-          type="text"
+          type="number"
         />
       </div>
       {isUpdateGoalPopUpOpen && (
