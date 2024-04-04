@@ -3,7 +3,7 @@ import UpdateProfilePicturePopUp from "./UpdateProfilePicturePopUp";
 import PortalPopup from "./PortalPopup";
 import { useNavigate } from "react-router-dom";
 
-const UpdateProfilePopUp = ({ onClose }) => {
+const UpdateProfilePopUp = ({ onClose, onYesButtonClick }) => {
   const [isChangePhotoPopUpOpen, setChangePhotoPopUpOpen] = useState(false);
   const navigate = useNavigate();
 
@@ -15,9 +15,6 @@ const UpdateProfilePopUp = ({ onClose }) => {
     setChangePhotoPopUpOpen(false);
   }, []);
 
-  const onYesButtonClick = useCallback(() => {
-    navigate("/profile-page-refined");
-  }, [navigate]);
 
   return (
     <>
