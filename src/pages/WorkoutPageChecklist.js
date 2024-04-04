@@ -1,5 +1,6 @@
-import { useCallback } from "react";
 import { useNavigate } from "react-router-dom";
+import { useState, useCallback, useEffect } from "react";
+
 
 const WorkoutPageChecklist = () => {
   const navigate = useNavigate();
@@ -7,6 +8,20 @@ const WorkoutPageChecklist = () => {
   const onBackButtonIconClick = useCallback(() => {
     navigate("/home-page");
   }, [navigate]);
+
+  const [userGoalData, setUserGoalData] = useState({});
+
+  useEffect(() => {
+    const storedUserGoalData = sessionStorage.getItem("userGoalData");
+    if (storedUserGoalData) {
+      setUserGoalData(JSON.parse(storedUserGoalData));
+    }
+  }, []);
+
+  const dailyGoal = `${userGoalData.dailyGoal || ''}`; 
+
+  // This arrangement can be altered based on how we want the date's format to appear.
+let date = new Date().toLocaleDateString();
 
   return (
     <div className="w-full relative h-[844px] text-left text-[28px] text-colors-neutral-white font-inter">
@@ -24,14 +39,20 @@ const WorkoutPageChecklist = () => {
         alt=""
         src="/logo-main-screen@2x.png"
       />
-      <img
-        className="absolute h-[10.19%] w-[78.46%] top-[10.19%] right-[10.77%] bottom-[79.62%] left-[10.77%] max-w-full overflow-hidden max-h-full"
-        alt=""
-        src="/rectangle-64.svg"
-      />
+      <div className="absolute h-[20%] w-[78.46%] top-[5.17%] right-[10.77%] bottom-[74.64%] left-[10.77%] text-left">
+        <img
+          className="absolute h-full w-full top-[0%] right-[0%] bottom-[0%] left-[0%] rounded-3xs max-w-full overflow-hidden max-h-full"
+          alt=""
+          src="/rectangle-64.svg"
+        />
+        <div className="absolute top-[50px] left-[26px] inline-block w-[400px] h-[30px]">{date}</div>
+        <div className="absolute top-[85px] left-[58px] inline-block w-[400px] h-[30px]">{dailyGoal}</div>
+      </div>
+
       <div className="absolute h-[3.44%] w-[7.44%] top-[15.52%] right-[74.87%] bottom-[81.04%] left-[17.69%] rounded-[50%] bg-colors-neutral-white" />
       <div className="absolute h-[2.25%] w-[4.87%] top-[16.11%] right-[76.15%] bottom-[81.64%] left-[18.97%] rounded-[50%] bg-deepskyblue-200" />
       <div className="absolute h-[1.3%] w-[2.82%] top-[16.59%] right-[77.18%] bottom-[82.11%] left-[20%] rounded-[50%] bg-colors-neutral-white" />
+
       <img
         className="absolute h-[4.15%] w-[8.21%] top-[2.61%] right-[83.59%] bottom-[93.25%] left-[8.21%] max-w-full overflow-hidden max-h-full object-contain cursor-pointer"
         alt=""
