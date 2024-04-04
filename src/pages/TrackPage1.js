@@ -54,7 +54,7 @@ const TrackPage1 = () => {
       <input
         className="[outline:none] font-poppins text-xl bg-silver-300 absolute h-[6.28%] w-[77.18%] top-[22.16%] right-[13.85%] bottom-[71.57%] left-[8.97%] rounded-lg box-border pt-[10.600000000000136px] px-[7.399999999999864px] pb-[11.599999999999774px] text-dimgray-500 border-[1px] border-solid border-darkgray"
         placeholder="Press Here to Type"
-        type="text"
+        type="number"
       />
       <input
         className="cursor-pointer m-0 absolute h-[5.57%] w-[12.04%] top-[44.43%] right-[76.94%] bottom-[50%] left-[11.03%] rounded-[50%] bg-black box-border border-[3px] border-solid border-colors-neutral-white"
