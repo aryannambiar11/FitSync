@@ -25,7 +25,29 @@ const GoalPageRefined = () => {
   // Callback function to handle goal selection
   const handleGoalSelect = useCallback((goal) => {
     setSelectedGoal(goal);
-  }, []);
+  }, [])
+  
+  const [formData, setFormData] = useState({
+    goal: "",
+    dailyGoal: "",
+  });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+  };
+
+  const handleSubmit = useCallback((e) => {
+    e.preventDefault();
+
+
+  window.sessionStorage.setItem("userGoalData", JSON.stringify(formData));
+    }
+  , [formData, navigate]);
+
 
   return (
     <>
@@ -46,7 +68,7 @@ const GoalPageRefined = () => {
           </div>
         </div>
         <DropdownButton
-          className="w-[27.18%] flex flex-col absolute h-[4.38%] top-[24.41%] right-[61.79%] bottom-[71.21%] left-[11.03%]"
+          className="w-[30.18%] flex flex-col absolute h-[4.38%] top-[24.41%] right-[61.79%] bottom-[71.21%] left-[11.03%]"
           title={selectedGoal || "Select Goal"} // Display selected goal
           variant="dark"
           drop="down"
@@ -82,6 +104,9 @@ const GoalPageRefined = () => {
           className="[border:none] [outline:none] font-poppins text-xl bg-[transparent] absolute h-[3.79%] w-[51.28%] top-[53.55%] left-[14.36%] text-dimgray-500 text-left inline-block"
           placeholder="Press Here to Type"
           type="text"
+          name = "dailyGoal"
+          value = {formData.dailyGoal}
+          onChange = {handleChange}
         />
         <div className="absolute h-[4.62%] w-[10%] top-[60.55%] right-[78.97%] bottom-[34.83%] left-[11.03%] rounded-[50%] bg-deepskyblue-200" />
         <img
@@ -95,7 +120,7 @@ const GoalPageRefined = () => {
         </div>
         <button
           className="cursor-pointer [border:none] p-0 bg-[transparent] absolute h-[5.28%] w-[47.44%] top-[79.27%] right-[29.23%] bottom-[15.45%] left-[23.33%]"
-          onClick={openUpdateGoalPopUp}
+          onClick={handleSubmit}
         >
           <img
             className="absolute h-full w-full top-[0%] right-[0%] bottom-[0%] left-[0%] rounded-3xs max-w-full overflow-hidden max-h-full"
@@ -106,22 +131,17 @@ const GoalPageRefined = () => {
             CONFIRM
           </b>
         </button>
-        <div className="absolute h-[4.38%] w-[38.46%] top-[24.64%] right-[21.54%] bottom-[70.97%] left-[40%] bg-black box-border border-[1px] border-solid border-colors-neutral-white" />
+        <div className="absolute h-[4.38%] w-[38.46%] top-[24.64%] right-[21.54%] bottom-[70.97%] left-[45%] bg-black box-border border-[1px] border-solid border-colors-neutral-white" />
         <input
-          className="[border:none] [outline:none] font-poppins text-xl bg-[transparent] absolute h-[3.79%] w-[38.21%] top-[24.76%] left-[41.79%] text-dimgray-600 text-left inline-block"
+          className="[border:none] [outline:none] font-poppins text-xl bg-[transparent] absolute h-[3.79%] w-[38.21%] top-[24.76%] left-[46.79%] text-dimgray-600 text-left inline-block"
           placeholder="Weight"
           type="text"
+          name = "goal"
+          value = {formData.goal}
+          onChange = {handleChange}
         />
       </div>
-      {isUpdateGoalPopUpOpen && (
-        <PortalPopup
-          overlayColor="rgba(113, 113, 113, 0.3)"
-          placement="Centered"
-          onOutsideClick={closeUpdateGoalPopUp}
-        >
-          <UpdateGoalPopUp onClose={closeUpdateGoalPopUp} />
-        </PortalPopup>
-      )}
+
     </>
   );
 };
