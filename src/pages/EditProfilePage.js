@@ -11,6 +11,8 @@ const EditProfilePage = () => {
   const [userData, setUserData] = useState({});
   const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
+  const [units, setUnits] = useState('lbs');
+  const [pushNotifications, setPushNotifications] = useState('No');
 
   const openUpdateProfilePopUp = useCallback(() => {
     setUpdateProfilePopUpOpen(true);
@@ -55,7 +57,25 @@ const EditProfilePage = () => {
       const userDataObj = JSON.parse(userDataString);
       setUserData(userDataObj);
     }
+
+    const storedUnits = localStorage.getItem("units");
+    if (storedUnits) {
+      setUnits(storedUnits);
+    }
+
+    const storedPushNotifications = localStorage.getItem("pushNotifications");
+    if (storedPushNotifications) {
+      setPushNotifications(storedPushNotifications);
+    }
   }, []);
+
+  useEffect(() => {
+    localStorage.setItem("units", units);
+  }, [units]);
+
+  useEffect(() => {
+    localStorage.setItem("pushNotifications", pushNotifications);
+  }, [pushNotifications]);
 
   const handleYesButtonClick = () => {
     // Splitting full name into first name and last name
@@ -92,6 +112,8 @@ const EditProfilePage = () => {
             className="cursor-pointer m-0 absolute h-[68.42%] w-1/5 top-[5.26%] right-[78.46%] bottom-[26.32%] left-[1.54%] rounded-[50%] bg-black"
             type="radio"
             name="units"
+            checked={units === 'lbs'}
+            onChange={() => setUnits('lbs')}
             defaultChecked
           />
           <div className="absolute h-full w-[73.08%] top-[0%] left-[26.92%] font-medium inline-block">
@@ -104,6 +126,8 @@ const EditProfilePage = () => {
             className="cursor-pointer m-0 absolute h-[68.42%] w-1/5 top-[5.26%] right-[78.46%] bottom-[26.32%] left-[1.54%] rounded-[50%] bg-black"
             type="radio"
             name="push"
+            checked={pushNotifications === 'No'}
+            onChange={() => setPushNotifications('No')}
             defaultChecked
           />
           <div className="absolute h-full w-[73.08%] top-[0%] left-[26.92%] font-medium inline-block">
@@ -116,6 +140,8 @@ const EditProfilePage = () => {
             className="cursor-pointer m-0 absolute h-[68.42%] w-1/5 top-[5.26%] right-[78.46%] bottom-[26.32%] left-[1.54%] rounded-[50%] bg-black"
             type="radio"
             name="units"
+            checked={units === 'kgs'}
+            onChange={() => setUnits('kgs')}
           />
           <div className="absolute h-full w-[73.08%] top-[0%] left-[26.92%] font-medium inline-block">
             kgs
@@ -127,6 +153,8 @@ const EditProfilePage = () => {
             className="cursor-pointer m-0 absolute h-[68.42%] w-1/5 top-[5.26%] right-[78.46%] bottom-[26.32%] left-[1.54%] rounded-[50%] bg-black"
             type="radio"
             name="push"
+            checked={pushNotifications === 'Yes'}
+            onChange={() => setPushNotifications('Yes')}
           />
           <div className="absolute h-full w-[73.08%] top-[0%] left-[26.92%] font-medium inline-block">
             Yes

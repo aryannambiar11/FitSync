@@ -6,6 +6,8 @@ import { useNavigate } from "react-router-dom";
 const ProfilePageRefined = () => {
   const [isLogOutPopUpOpen, setLogOutPopUpOpen] = useState(false);
   const [userData, setUserData] = useState({});
+  const [units, setUnits] = useState('lbs');
+  const [pushNotifications, setPushNotifications] = useState('No');
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -13,7 +15,25 @@ const ProfilePageRefined = () => {
     if (storedUserData) {
       setUserData(JSON.parse(storedUserData));
     }
+
+    const storedUnits = localStorage.getItem("units");
+    if (storedUnits) {
+      setUnits(storedUnits);
+    }
+
+    const storedPushNotifications = localStorage.getItem("pushNotifications");
+    if (storedPushNotifications) {
+      setPushNotifications(storedPushNotifications);
+    }
   }, []);
+
+  useEffect(() => {
+    localStorage.setItem("units", units);
+  }, [units]);
+
+  useEffect(() => {
+    localStorage.setItem("pushNotifications", pushNotifications);
+  }, [pushNotifications]);
 
   const onPencilClick = useCallback(() => {
     navigate("/edit-profile-page");
@@ -53,6 +73,8 @@ const ProfilePageRefined = () => {
             className="cursor-pointer m-0 absolute h-[68.42%] w-1/5 top-[5.26%] right-[78.46%] bottom-[26.32%] left-[1.54%] rounded-[50%] bg-black"
             type="radio"
             name="units"
+            checked={units === 'lbs'}
+            onChange={() => setUnits('lbs')}
             defaultChecked
           />
           <div className="absolute h-full w-[73.08%] top-[0%] left-[26.92%] font-medium inline-block">
@@ -65,6 +87,8 @@ const ProfilePageRefined = () => {
             className="cursor-pointer m-0 absolute h-[68.42%] w-1/5 top-[5.26%] right-[78.46%] bottom-[26.32%] left-[1.54%] rounded-[50%] bg-black"
             type="radio"
             name="push"
+            checked={pushNotifications === 'No'}
+            onChange={() => setPushNotifications('No')}
             defaultChecked
           />
           <div className="absolute h-full w-[73.08%] top-[0%] left-[26.92%] font-medium inline-block">
@@ -77,6 +101,8 @@ const ProfilePageRefined = () => {
             className="cursor-pointer m-0 absolute h-[68.42%] w-1/5 top-[5.26%] right-[78.46%] bottom-[26.32%] left-[1.54%] rounded-[50%] bg-black"
             type="radio"
             name="units"
+            checked={units === 'kgs'}
+            onChange={() => setUnits('kgs')}
           />
           <div className="absolute h-full w-[73.08%] top-[0%] left-[26.92%] font-medium inline-block">
             kgs
@@ -88,6 +114,8 @@ const ProfilePageRefined = () => {
             className="cursor-pointer m-0 absolute h-[68.42%] w-1/5 top-[5.26%] right-[78.46%] bottom-[26.32%] left-[1.54%] rounded-[50%] bg-black"
             type="radio"
             name="push"
+            checked={pushNotifications === 'Yes'}
+            onChange={() => setPushNotifications('Yes')}
           />
           <div className="absolute h-full w-[73.08%] top-[0%] left-[26.92%] font-medium inline-block">
             Yes
