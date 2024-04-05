@@ -15,7 +15,13 @@ const HomePage = () => {
   }, []);
 
   const [userOptionData, setUserOptionData] = useState({});
-  let option = userOptionData;
+
+  let option = ""
+    if (userOptionData != "Lose " && userOptionData != "Gain " && userOptionData != "Maintain ") {
+      option  = ""; }
+    else {
+      option = userOptionData
+    }
 
   useEffect(() => {
     const storedUserOptionData = sessionStorage.getItem("option");
