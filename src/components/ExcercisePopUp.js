@@ -33,7 +33,14 @@ const ExercisePopup = ({ onClose }) => {
 
   // Save handler
   const handleSave = () => {
-    // Perform save operations here
+    const exerciseData = {
+      name: document.getElementById("exercise-name").value,
+      sets: sets,
+      reps: reps,
+      minutes: parseInt(document.getElementById("time-minutes").value) || 0,
+      seconds: parseInt(document.getElementById("time-seconds").value) || 0,
+    };
+    window.sessionStorage.setItem("exerciseData", JSON.stringify(exerciseData));
     if (onClose) {
       onClose(); // If you have a passed onClose function to call
     }

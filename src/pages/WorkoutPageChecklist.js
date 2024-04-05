@@ -46,7 +46,7 @@ let date = new Date().toLocaleDateString();
           src="/rectangle-64.svg"
         />
         <div className="absolute top-[50px] left-[26px] inline-block w-[400px] h-[30px]">{date}</div>
-        <div className="absolute top-[85px] left-[58px] inline-block w-[400px] h-[30px]">{dailyGoal}</div>
+        <div className="absolute top-[85px] left-[65px] inline-block w-[400px] h-[30px]">{dailyGoal}</div>
       </div>
 
       <div className="absolute h-[3.44%] w-[7.44%] top-[15.52%] right-[74.87%] bottom-[81.04%] left-[17.69%] rounded-[50%] bg-colors-neutral-white" />

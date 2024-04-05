@@ -48,7 +48,7 @@ const GoalPageRefined = () => {
     setSelectedGoal(goal);
     sessionStorage.setItem("option", selectedOptionText);
   })
-  
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prevData) => ({
@@ -61,9 +61,9 @@ const GoalPageRefined = () => {
     e.preventDefault();
 
 
-  window.sessionStorage.setItem("userGoalData", JSON.stringify(formData));
-    }
-  , [formData, navigate]);
+    window.sessionStorage.setItem("userGoalData", JSON.stringify(formData));
+  }
+    , [formData, navigate]);
 
 
   return (
@@ -89,8 +89,8 @@ const GoalPageRefined = () => {
           title={selectedGoal || "Select Goal"} // Display selected goal
           variant="dark"
           drop="down"
-          value = {formData.option}
-          onChange = {handleChange}
+          value={formData.option}
+          onChange={handleChange}
           onSelect={handleGoalSelect} // Call handleGoalSelect when an option is selected
         >
           <Dropdown.Item eventKey="Lose">Lose:</Dropdown.Item>
@@ -124,9 +124,9 @@ const GoalPageRefined = () => {
           className="[border:none] [outline:none] font-poppins text-xl bg-[transparent] absolute h-[3.79%] w-[51.28%] top-[53.55%] left-[14.36%] text-dimgray-500 text-left inline-block"
           placeholder="Press Here to Type"
           type="text"
-          name = "dailyGoal"
-          value = {formData.dailyGoal}
-          onChange = {handleChange}
+          name="dailyGoal"
+          value={formData.dailyGoal}
+          onChange={handleChange}
         />
         <div className="absolute h-[4.62%] w-[10%] top-[60.55%] right-[78.97%] bottom-[34.83%] left-[11.03%] rounded-[50%] bg-deepskyblue-200" />
         <img
@@ -155,10 +155,10 @@ const GoalPageRefined = () => {
         <input
           className="[border:none] [outline:none] font-poppins text-xl bg-[transparent] absolute h-[3.79%] w-[38.21%] top-[24.76%] left-[46.79%] text-dimgray-600 text-left inline-block"
           placeholder="Weight"
-          type="text"
-          name = "goal"
-          value = {formData.goal}
-          onChange = {handleChange}
+          type="number"
+          name="goal"
+          value={formData.goal}
+          onChange={handleChange}
         />
       </div>
 
