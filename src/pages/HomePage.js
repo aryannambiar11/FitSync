@@ -8,7 +8,7 @@ const HomePage = () => {
   const [userGoalData, setUserGoalData] = useState({});
   let goal = userGoalData.goal
   let dailyGoal = userGoalData.dailyGoal
-  let unit = " lbs";
+  let unit = "";
 
 
   useEffect(() => {
@@ -20,12 +20,6 @@ const HomePage = () => {
 
   const [userOptionData, setUserOptionData] = useState({});
 
-  let option = ""
-    if (userOptionData != "Lose " && userOptionData != "Gain " && userOptionData != "Maintain ") {
-      option  = ""; }
-    else {
-      option = userOptionData
-    }
  
     const storedUnits = localStorage.getItem("units");
     let currentUnit = "";
@@ -50,8 +44,6 @@ const HomePage = () => {
       // Retrieve userGoalData from sessionStorage
       const storedItem = sessionStorage.getItem("userGoalData");
       let userGoalData = {};
-      console.log("bruh");
-
     
       if (storedItem) {
         userGoalData = JSON.parse(storedItem);
@@ -78,10 +70,18 @@ const HomePage = () => {
     
     }
 
+    let option = ""
+    if (userOptionData != "Lose " && userOptionData != "Gain " && userOptionData != "Maintain ") {
+      option  = ""; 
+      goal = "";
+      unit = "";
+    }
+    else {
+      option = userOptionData;
+    }
+
     // Store the initial value of unit in previousUnits
      localStorage.setItem("previousUnit", storedUnits);
-
-     goal = userGoalData.goal
 
   useEffect(() => {
     const storedUserOptionData = sessionStorage.getItem("option");
