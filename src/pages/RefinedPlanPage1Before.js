@@ -1,4 +1,4 @@
-import { useState, useCallback } from "react";
+import React, { useState, useCallback, useEffect } from "react";
 import "antd/dist/antd.min.css";
 import { DatePicker } from "antd";
 import ExcercisePopUp from "../components/ExcercisePopUp";
@@ -24,7 +24,30 @@ const RefinedPlanPage1Before = () => {
   const [isBurpeesPopupOpen, setBurpeesPopupOpen] = useState(false);
   const [isStairsPopupOpen, setStairsPopupOpen] = useState(false);
   const [isSitUpsPopupOpen, setSitUpsPopupOpen] = useState(false);
+  const [loadedExercises, setLoadedExercises] = useState([]);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    const handleStorageChange = () => {
+      const savedExercises = sessionStorage.getItem('exerciseData');
+      if (savedExercises) {
+        setLoadedExercises(JSON.parse(savedExercises));
+      }
+    };
+
+    // Event listener for custom storage change event
+    window.addEventListener('storageChange', handleStorageChange);
+
+    // Manually call handleStorageChange to load exercises on mount
+    handleStorageChange();
+
+    // Cleanup
+    return () => {
+      window.removeEventListener('storageChange', handleStorageChange);
+    };
+  }, []);
+
+  
 
   const onBackButtonIconClick = useCallback(() => {
     navigate("/home-page");
@@ -129,7 +152,8 @@ const RefinedPlanPage1Before = () => {
   const closeSitUpsPopup = useCallback(() => {
     setSitUpsPopupOpen(false);
   }, []);
-
+ 
+  
   return (
     <>
       <div className="w-full relative h-[844px] text-left text-xl text-black font-poppins">
@@ -144,8 +168,26 @@ const RefinedPlanPage1Before = () => {
           bordered={true}
           allowClear={false}
         />
+         
+         <div className="absolute h-[37%] w-[78.97%] top-[23%] right-[10%] bottom-[30%] left-[11.03%] bg-black box-border border-[1px] border-solid border-colors-neutral-white z-10 overflow-y-auto ">
+            {loadedExercises.length > 0 ? (
+              loadedExercises.map((exercise, index) => (
+                <div key={index} className="text-colors-neutral-white text-base mb-2 p-2">
+                   {exercise.sets && exercise.reps
+                  ? `${exercise.name} ${exercise.sets}x${exercise.reps}`
+                  : `${exercise.name} - ${exercise.minutes} m : ${exercise.seconds} s`}
+
+                </div>
+              ))
+            ) : (
+              <div className="text-colors-neutral-black text-base p-2">
+                No exercises loaded
+              </div>
+            )}
+          </div>
+      
         <img
-          className="absolute h-[4.15%] w-[8.21%] top-[2.61%] right-[80%] bottom-[93.25%] left-[11.79%] max-w-full overflow-hidden max-h-full object-contain cursor-pointer"
+          className="absolute h-[4.15%] w-[8.21%] top-[1.61%] right-[80%] bottom-[93.25%] left-[11.79%] max-w-full overflow-hidden max-h-full object-contain cursor-pointer"
           alt=""
           src="/back-button51.svg"
           onClick={onBackButtonIconClick}
@@ -260,8 +302,8 @@ const RefinedPlanPage1Before = () => {
           className="cursor-pointer [border:none] p-0 bg-[transparent] absolute h-[3.91%] w-[38.21%] top-[60.78%] right-[50%] bottom-[35.31%] left-[11.79%]"
           onClick={openLoadTemplatePopup}
         >
-          <div className="absolute h-full w-full top-[0%] right-[0%] bottom-[0%] left-[0%] rounded-3xs bg-deepskyblue-200" />
-          <b className="absolute h-[78.79%] w-[90.6%] top-[12.12%] left-[5.37%] text-mini inline-block font-poppins text-transparent !bg-clip-text [background:linear-gradient(#fff,_#fff),_linear-gradient(#fff,_#fff),_linear-gradient(#fff,_#fff),_#fff] [-webkit-background-clip:text] [-webkit-text-fill-color:transparent] text-center">
+          <div className="absolute h-full w-full top-[0%] right-[0%] bottom-[0%] left-[0%] rounded-3xs bg-deepskyblue-200 z-10 overflow-y-auto" />
+          <b className="absolute h-[78.79%] w-[90.6%] top-[12.12%] left-[5.37%] text-mini inline-block font-poppins text-transparent !bg-clip-text [background:linear-gradient(#fff,_#fff),_linear-gradient(#fff,_#fff),_linear-gradient(#fff,_#fff),_#fff] [-webkit-background-clip:text] [-webkit-text-fill-color:transparent] text-center z-10">
             Load Template
           </b>
         </button>
@@ -269,8 +311,8 @@ const RefinedPlanPage1Before = () => {
           className="cursor-pointer [border:none] p-0 bg-[transparent] absolute h-[3.91%] w-[38.21%] top-[60.78%] right-[10%] bottom-[35.31%] left-[51.79%]"
           onClick={openNameTemplatePopup}
         >
-          <div className="absolute h-full w-full top-[0%] right-[0%] bottom-[0%] left-[0%] rounded-3xs bg-deepskyblue-200" />
-          <b className="absolute h-[78.79%] w-[90.6%] top-[12.12%] left-[5.37%] text-mini inline-block font-poppins text-transparent !bg-clip-text [background:linear-gradient(#fff,_#fff),_linear-gradient(#fff,_#fff),_linear-gradient(#fff,_#fff),_#fff] [-webkit-background-clip:text] [-webkit-text-fill-color:transparent] text-center">
+          <div className="absolute h-full w-full top-[0%] right-[0%] bottom-[0%] left-[0%] rounded-3xs bg-deepskyblue-200 z-10" />
+          <b className="absolute h-[78.79%] w-[90.6%] top-[12.12%] left-[5.37%] text-mini inline-block font-poppins text-transparent !bg-clip-text [background:linear-gradient(#fff,_#fff),_linear-gradient(#fff,_#fff),_linear-gradient(#fff,_#fff),_#fff] [-webkit-background-clip:text] [-webkit-text-fill-color:transparent] text-center z-10" >
             Save Template
           </b>
         </button>
@@ -305,6 +347,7 @@ const RefinedPlanPage1Before = () => {
           />
           <div className="absolute top-[2px] left-[8px] rounded-[50%] bg-gray-200 box-border w-2 h-[9px] border-[1px] border-solid border-black" />
         </button>
+        
       </div>
       {isExcercisePopUpOpen && (
         <PortalPopup
@@ -416,6 +459,8 @@ const RefinedPlanPage1Before = () => {
       )}
     </>
   );
+
+  
 };
 
 export default RefinedPlanPage1Before;
