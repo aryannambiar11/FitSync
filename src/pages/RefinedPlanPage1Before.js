@@ -1,6 +1,7 @@
-import React, { useState, useCallback, useEffect } from "react";
+import { useState, useCallback, useEffect } from "react";
 import "antd/dist/antd.min.css";
 import { DatePicker } from "antd";
+import moment from 'moment';
 import ExcercisePopUp from "../components/ExcercisePopUp";
 import PortalPopup from "../components/PortalPopup";
 import LoadTemplatePopup from "../components/LoadTemplatePopup";
@@ -47,7 +48,18 @@ const RefinedPlanPage1Before = () => {
     };
   }, []);
 
-  
+  const [date, setDate] = useState(() => {
+    const savedDate = sessionStorage.getItem('selectedDate');
+    return savedDate ? moment(savedDate) : moment();
+  });
+
+  useEffect(() => {
+    sessionStorage.setItem('selectedDate', date.format('YYYY-MM-DD'));
+  }, [date]);
+
+  const handleDateChange = (value) => {
+    setDate(value);
+  };
 
   const onBackButtonIconClick = useCallback(() => {
     navigate("/home-page");
@@ -164,6 +176,8 @@ const RefinedPlanPage1Before = () => {
         <DatePicker
           className="absolute h-[4.62%] w-[48.97%] top-[11.02%] right-[10%] bottom-[84.36%] left-[41.03%]"
           size="large"
+          value={date}
+          onChange={handleDateChange}
           autoFocus={true}
           bordered={true}
           allowClear={false}
