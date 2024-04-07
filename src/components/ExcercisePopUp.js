@@ -33,18 +33,28 @@ const ExercisePopup = ({ onClose }) => {
 
   // Save handler
   const handleSave = () => {
-    const exerciseData = {
+    const newExerciseData = {
       name: document.getElementById("exercise-name").value,
       sets: sets,
       reps: reps,
       minutes: parseInt(document.getElementById("time-minutes").value) || 0,
       seconds: parseInt(document.getElementById("time-seconds").value) || 0,
     };
-    window.sessionStorage.setItem("exerciseData", JSON.stringify(exerciseData));
-    if (onClose) {
-      onClose(); // If you have a passed onClose function to call
-    }
+  
+    // Get the current exercises from sessionStorage, or initialize an empty array if none exist
+    const currentExercises = JSON.parse(sessionStorage.getItem('exerciseData')) || [];
+    
+    // Add the new exercise data to the current exercises array
+    currentExercises.push(newExerciseData);
+    
+    // Save the updated exercises array to sessionStorage
+    sessionStorage.setItem('exerciseData', JSON.stringify(currentExercises));
+    //mine
+    window.dispatchEvent(new Event('storageChange'));
+    // Close the popup
+    onClose();
   };
+  
 
   return (
     <>
