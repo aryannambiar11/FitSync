@@ -10,6 +10,15 @@ const GoalPageRefined = () => {
   const [selectedGoal, setSelectedGoal] = useState(""); // Add state for selected goal
   const navigate = useNavigate();
 
+  const storedUnits = localStorage.getItem("units");
+  let unit = "";
+  if (storedUnits == "kgs") {
+    unit = " kg"
+  }
+  else {
+    unit = " lbs"
+  }
+
   const onBackButtonIconClick = useCallback(() => {
     navigate("/home-page");
   }, [navigate]);
@@ -111,6 +120,8 @@ const GoalPageRefined = () => {
         <div className="absolute h-[4.98%] w-[36.15%] top-[18.96%] left-[11.03%] text-13xl inline-block">
           GOAL
         </div>
+        <div className="absolute h-[4.5%] w-[56.67%] top-[24.90%] left-[85.33%] text-xl inline-block">{unit}</div>
+
         <div className="absolute h-[4.98%] w-[61.03%] top-[45.73%] left-[11.03%] text-13xl inline-block">
           DAILY GOAL
         </div>
