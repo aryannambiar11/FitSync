@@ -54,13 +54,11 @@ const HomePage = () => {
         // Update the goal property in userGoalData
         userGoalData.goal = (parseFloat(userGoalData.goal) * 0.453592).toFixed(1); // Convert lbs to kg
 
-        console.log(userGoalData.goal)
 
       } else {
         // Update the goal property in userGoalData
         userGoalData.goal = (parseFloat(userGoalData.goal) * 2.20462).toFixed(1); // Convert kg to lbs
 
-        console.log(userGoalData.goal)
 
 
       }
