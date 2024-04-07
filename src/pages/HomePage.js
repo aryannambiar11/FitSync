@@ -16,12 +16,24 @@ const HomePage = () => {
 
   const [userOptionData, setUserOptionData] = useState({});
 
+
   let option = ""
     if (userOptionData != "Lose " && userOptionData != "Gain " && userOptionData != "Maintain ") {
       option  = ""; }
     else {
       option = userOptionData
     }
+
+  const storedUnits = localStorage.getItem("units");
+  let unit = "";
+    if (storedUnits == "kgs") {
+      unit = " kg"
+    }
+    else {
+      unit = " lbs"
+    }
+
+
 
   useEffect(() => {
     const storedUserOptionData = sessionStorage.getItem("option");
@@ -112,7 +124,7 @@ const HomePage = () => {
           src="/rectangle-64.svg"
         />
         <div className="absolute top-[48px] left-[9px] inline-block w-[400px] h-[30px]">{`Daily Goal: `}{dailyGoal}</div>
-        <div className="absolute top-[11px] left-[9px] inline-block w-[400px] h-[30px]">{`Overall Goal: `}{option+goal}</div>
+        <div className="absolute top-[11px] left-[9px] inline-block w-[400px] h-[30px]">{`Overall Goal: `}{option+goal+unit}</div>
       </div>
       <div
         className="absolute h-[3.44%] w-[18.46%] top-[10.66%] right-[10.77%] bottom-[85.9%] left-[70.77%] cursor-pointer text-black"
