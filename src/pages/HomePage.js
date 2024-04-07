@@ -6,6 +6,10 @@ import CreatePlanButton from "../components/CreatePlanButton";
 const HomePage = () => {
   const navigate = useNavigate();
   const [userGoalData, setUserGoalData] = useState({});
+  let goal = userGoalData.goal
+  let dailyGoal = userGoalData.dailyGoal
+  let unit = " lbs";
+
 
   useEffect(() => {
     const storedUserGoalData = sessionStorage.getItem("userGoalData");
@@ -16,7 +20,6 @@ const HomePage = () => {
 
   const [userOptionData, setUserOptionData] = useState({});
 
-
   let option = ""
     if (userOptionData != "Lose " && userOptionData != "Gain " && userOptionData != "Maintain ") {
       option  = ""; }
@@ -24,15 +27,39 @@ const HomePage = () => {
       option = userOptionData
     }
 
-  const storedUnits = localStorage.getItem("units");
-  let unit = "";
-    if (storedUnits == "kgs") {
-      unit = " kg"
-    }
-    else {
-      unit = " lbs"
+ 
+
+    const storedUnits = localStorage.getItem("units");
+    let currentUnit = "";
+    let previousUnit = "";
+
+    // Check if there's a stored unit preference
+    if (storedUnits === "kgs" || storedUnits === "lbs") {
+      currentUnit = storedUnits;
+    } else {
+      // Default to lbs if no preference is found
+      currentUnit = "lbs";
     }
 
+    // Store the initial value of unit in previousUnit
+    previousUnit = currentUnit;
+
+
+    if (currentUnit === "kgs") {
+      unit = " kg";
+    } else {
+      unit = " lbs";
+    }
+
+    if (currentUnit !== previousUnit) {
+      console.log("dif");
+      if (currentUnit === "kgs") {
+        goal = (goal * 0.45).toFixed(1)
+      } else {
+        goal = (goal * 2.2).toFixed(1)
+      }
+    }
+ 
 
 
   useEffect(() => {
@@ -59,8 +86,6 @@ const HomePage = () => {
     navigate("/goal-page-refined");
   }, [navigate]);
 
-  const goal = `${userGoalData.goal || ''}`; 
-  const dailyGoal = `${userGoalData.dailyGoal || ''}`; 
 
   return (
     <div className="w-full relative h-[844px] text-center text-xl text-colors-neutral-white font-poppins">
