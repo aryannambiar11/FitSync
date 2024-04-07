@@ -26,12 +26,10 @@ const HomePage = () => {
     else {
       option = userOptionData
     }
-
  
-
     const storedUnits = localStorage.getItem("units");
     let currentUnit = "";
-    let previousUnit = "";
+    const previousUnit = localStorage.getItem("previousUnit");
 
     // Check if there's a stored unit preference
     if (storedUnits === "kgs" || storedUnits === "lbs") {
@@ -41,9 +39,6 @@ const HomePage = () => {
       currentUnit = "lbs";
     }
 
-    // Store the initial value of unit in previousUnit
-    previousUnit = currentUnit;
-
 
     if (currentUnit === "kgs") {
       unit = " kg";
@@ -52,15 +47,41 @@ const HomePage = () => {
     }
 
     if (currentUnit !== previousUnit) {
-      console.log("dif");
-      if (currentUnit === "kgs") {
-        goal = (goal * 0.45).toFixed(1)
-      } else {
-        goal = (goal * 2.2).toFixed(1)
-      }
-    }
- 
+      // Retrieve userGoalData from sessionStorage
+      const storedItem = sessionStorage.getItem("userGoalData");
+      let userGoalData = {};
+      console.log("bruh");
 
+    
+      if (storedItem) {
+        userGoalData = JSON.parse(storedItem);
+
+      }
+    
+      if (unit === " kg") {
+        // Update the goal property in userGoalData
+        userGoalData.goal = (parseFloat(userGoalData.goal) * 0.453592).toFixed(1); // Convert lbs to kg
+
+        console.log(userGoalData.goal)
+
+      } else {
+        // Update the goal property in userGoalData
+        userGoalData.goal = (parseFloat(userGoalData.goal) * 2.20462).toFixed(1); // Convert kg to lbs
+
+        console.log(userGoalData.goal)
+
+
+      }
+    
+      // Stringify the updated userGoalData and store it back into sessionStorage
+      sessionStorage.setItem("userGoalData", JSON.stringify(userGoalData));
+    
+    }
+
+    // Store the initial value of unit in previousUnits
+     localStorage.setItem("previousUnit", storedUnits);
+
+     goal = userGoalData.goal
 
   useEffect(() => {
     const storedUserOptionData = sessionStorage.getItem("option");
