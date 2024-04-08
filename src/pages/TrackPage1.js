@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 
 const TrackPage1 = () => {
   const navigate = useNavigate();
+  const storedUnits = localStorage.getItem("units");
 
   const onLoginButtonContainerClick = useCallback(() => {
     navigate("/home-page");
@@ -37,6 +38,7 @@ const TrackPage1 = () => {
       <div className="absolute h-[4.98%] w-[83.06%] top-[15.87%] left-[8.47%] inline-block">
         Today’s Weight:
       </div>
+      <div className="absolute h-[4.98%] w-[83.06%] top-[22.87%] left-[73.47%] inline-block" >{storedUnits}</div>
       <div className="absolute h-[4.98%] w-[65.11%] top-[33.41%] left-[8.47%] flex items-center">
         Did you meet today’s goal?
       </div>
@@ -52,7 +54,7 @@ const TrackPage1 = () => {
         src="/logo-profile-page1@2x.png"
       />
       <input
-        className="[outline:none] font-poppins text-xl bg-silver-300 absolute h-[6.28%] w-[77.18%] top-[22.16%] right-[13.85%] bottom-[71.57%] left-[8.97%] rounded-lg box-border pt-[10.600000000000136px] px-[7.399999999999864px] pb-[11.599999999999774px] text-dimgray-500 border-[1px] border-solid border-darkgray"
+        className="[outline:none] font-poppins text-xl bg-silver-300 absolute h-[6.28%] w-[60.18%] top-[22.16%] right-[13.85%] bottom-[71.57%] left-[8.97%] rounded-lg box-border pt-[10.600000000000136px] px-[7.399999999999864px] pb-[11.599999999999774px] text-dimgray-500 border-[1px] border-solid border-darkgray"
         placeholder="Press Here to Type"
         type="number"
       />

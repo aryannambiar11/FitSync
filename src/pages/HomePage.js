@@ -198,7 +198,7 @@ const HomePage = () => {
             <div className="absolute h-[27.06%] w-[5.22%] top-[42.23%] right-[39.18%] bottom-[30.71%] left-[55.6%] rounded-6xs bg-deepskyblue-200 shadow-[0px_2px_2px_rgba(50,_50,_71,_0.06),_0px_2px_4px_rgba(50,_50,_71,_0.06)] box-border border-[2px] border-solid border-colors-neutral-white" />
             <div className="absolute h-[27.06%] w-[5.22%] top-[32.63%] right-[56.72%] bottom-[40.31%] left-[38.06%] rounded-6xs bg-deepskyblue-200 shadow-[0px_2px_2px_rgba(50,_50,_71,_0.06),_0px_2px_4px_rgba(50,_50,_71,_0.06)] box-border border-[2px] border-solid border-colors-neutral-white" />
             <div className="absolute h-[27.06%] w-[5.22%] top-[28.79%] right-[75%] bottom-[44.15%] left-[19.78%] rounded-6xs bg-deepskyblue-200 shadow-[0px_2px_2px_rgba(50,_50,_71,_0.06),_0px_2px_4px_rgba(50,_50,_71,_0.06)] box-border border-[2px] border-solid border-colors-neutral-white" />
-            <div className="absolute h-[27.06%] w-[5.22%] top-[0%] right-[94.78%] bottom-[72.94%] left-[0%] rounded-6xs bg-deepskyblue-200 shadow-[0px_2px_2px_rgba(50,_50,_71,_0.06),_0px_2px_4px_rgba(50,_50,_71,_0.06)] box-border border-[2px] border-solid border-colors-neutral-white" />
+            <div className="absolute h-[27.06%] w-[5.22%] top-[0%] right-[94.78%] bottom-[72.94%] left-[2%] rounded-6xs bg-deepskyblue-200 shadow-[0px_2px_2px_rgba(50,_50,_71,_0.06),_0px_2px_4px_rgba(50,_50,_71,_0.06)] box-border border-[2px] border-solid border-colors-neutral-white" />
           </div>
           <div className="absolute h-[10.67%] w-[81.35%] top-[86.44%] right-[6.34%] bottom-[2.88%] left-[12.31%]">
             <div className="absolute h-[39.34%] w-[6.81%] top-[0%] left-[74.39%] leading-[13px] inline-block">
@@ -250,6 +250,7 @@ const HomePage = () => {
           />
           <div className="absolute h-[0.64%] w-[11.38%] top-[50.32%] right-[56%] bottom-[49.04%] left-[32.62%] box-border border-t-[2px] border-solid border-deepskyblue-200" />
           <div className="absolute h-[0.64%] w-[13.23%] top-[57.05%] right-[9.23%] bottom-[42.31%] left-[77.54%] box-border border-t-[2px] border-solid border-deepskyblue-200" />
+          <div className="absolute h-[0.64%] w-[11.8%] top-[50.5%] right-[23.23%] bottom-[42.31%] left-[46.54%] box-border border-t-[2px] border-solid border-deepskyblue-200" />
           <img
             className="absolute h-[23.62%] w-[40.62%] top-[41.89%] right-[26.46%] bottom-[34.49%] left-[32.92%] max-w-full overflow-hidden max-h-full object-contain"
             alt=""
@@ -259,10 +260,7 @@ const HomePage = () => {
             Weight (lbs)
           </div>
         </div>
-        <img
-          className="absolute h-[1.6%] w-[10.15%] top-[50.96%] right-[41.85%] bottom-[47.44%] left-[48%] max-w-full overflow-hidden max-h-full object-contain"
-          alt=""
-        />
+
       </div>
       <div className="absolute h-[2.73%] w-[36.15%] top-[27.84%] left-[10.77%] text-left inline-block">
         Progress:
