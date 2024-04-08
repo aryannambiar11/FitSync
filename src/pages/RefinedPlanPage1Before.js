@@ -117,6 +117,15 @@ const RefinedPlanPage1Before = () => {
     setLoadTemplatePopupOpen(false);
   }, []);
 
+  // Define the onTemplateLoad function
+  const onTemplateLoad = (loadedExercises) => {
+    setLoadedExercises(loadedExercises);
+  };
+
+  const handleSaveTemplate = (loadedExercises) => {
+    setLoadedExercises(loadedExercises)
+  }
+
   const openNameTemplatePopup = useCallback(() => {
     setNameTemplatePopupOpen(true);
   }, []);
@@ -414,7 +423,7 @@ const RefinedPlanPage1Before = () => {
           placement="Centered"
           onOutsideClick={closeLoadTemplatePopup}
         >
-          <LoadTemplatePopup onClose={closeLoadTemplatePopup} />
+          <LoadTemplatePopup onClose={closeLoadTemplatePopup} onTemplateLoad={onTemplateLoad} />
         </PortalPopup>
       )}
       {isNameTemplatePopupOpen && (
@@ -423,7 +432,7 @@ const RefinedPlanPage1Before = () => {
           placement="Centered"
           onOutsideClick={closeNameTemplatePopup}
         >
-          <NameTemplatePopup onClose={closeNameTemplatePopup} />
+          <NameTemplatePopup onClose={closeNameTemplatePopup} onTemplateSave={handleSaveTemplate} />
         </PortalPopup>
       )}
       {isPopUpPlanks1Open && (
