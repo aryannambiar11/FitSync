@@ -68,9 +68,8 @@ const GoalPageRefined = () => {
 
   const handleSubmit = useCallback((e) => {
     e.preventDefault();
-
-
     window.sessionStorage.setItem("userGoalData", JSON.stringify(formData));
+    navigate("/home-page");
   }
     , [formData, navigate]);
 
