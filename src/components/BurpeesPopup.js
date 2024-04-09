@@ -63,7 +63,7 @@ const BurpeesPopup = ({ onClose }) => {
           placement="Centered"
           onOutsideClick={closeExercisePopUp}
         >
-          <ExcercisePopUp onClose={closeExercisePopUp} recommendedExerciseName="Stairs" />
+          <ExcercisePopUp onClose={closeExercisePopUp} recommendedExerciseName="Burpees" />
         </PortalPopup>
       )}
       
