@@ -21,7 +21,6 @@ const RefinedPlanPage1Before = () => {
   const [isLoadTemplatePopupOpen, setLoadTemplatePopupOpen] = useState(false);
   const [isNameTemplatePopupOpen, setNameTemplatePopupOpen] = useState(false);
   const [isPopUpPlanksOpen, setPopUpPlanksOpen] = useState(false);
-  const [isPopUpPlanks1Open, setPopUpPlanks1Open] = useState(false);
   const [isBurpeesPopupOpen, setBurpeesPopupOpen] = useState(false);
   const [isStairsPopupOpen, setStairsPopupOpen] = useState(false);
   const [isSitUpsPopupOpen, setSitUpsPopupOpen] = useState(false);
@@ -146,14 +145,6 @@ const RefinedPlanPage1Before = () => {
 
   const closeNameTemplatePopup = useCallback(() => {
     setNameTemplatePopupOpen(false);
-  }, []);
-
-  const openPopUpPlanks1 = useCallback(() => {
-    setPopUpPlanks1Open(true);
-  }, []);
-
-  const closePopUpPlanks1 = useCallback(() => {
-    setPopUpPlanks1Open(false);
   }, []);
 
   const openPopUpPlanks = useCallback(() => {
@@ -380,7 +371,7 @@ const RefinedPlanPage1Before = () => {
         </button>
         <button
           className="cursor-pointer [border:none] p-0 bg-[transparent] absolute top-[637px] left-[53px] w-6 h-[13px]"
-          onClick={openPopUpPlanks1}
+          onClick={openPopUpPlanks}
         >
           <div className="absolute top-[0px] left-[0px] rounded-[50%] bg-gainsboro-200 box-border w-6 h-[13px] border-[1px] border-solid border-black" />
           <div
@@ -472,15 +463,6 @@ const RefinedPlanPage1Before = () => {
           onOutsideClick={closeNameTemplatePopup}
         >
           <NameTemplatePopup onClose={closeNameTemplatePopup} onTemplateSave={handleSaveTemplate} />
-        </PortalPopup>
-      )}
-      {isPopUpPlanks1Open && (
-        <PortalPopup
-          overlayColor="rgba(113, 113, 113, 0.3)"
-          placement="Centered"
-          onOutsideClick={closePopUpPlanks1}
-        >
-          <PopUpPlanks onClose={closePopUpPlanks1} />
         </PortalPopup>
       )}
       {isPopUpPlanksOpen && (
