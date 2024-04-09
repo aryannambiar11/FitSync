@@ -1,4 +1,20 @@
+import PortalPopup from "../components/PortalPopup";
+import ExcercisePopUp from "../components/ExcercisePopUp";
+import { useState, useCallback } from "react";
+
 const BurpeesPopup = ({ onClose }) => {
+
+  const [isExcercisePopUpOpen, setExcercisePopUpOpen] = useState(false);
+
+  const openExcercisePopUp = useCallback(() => {
+    setExcercisePopUpOpen(true);
+  }, []);
+
+  const closeExercisePopUp = useCallback(() => {
+    setExcercisePopUpOpen(false);
+    onClose();
+  }, []);
+
   return (
     <div className="absolute inset-0 flex items-center justify-center">
     <div className="absolute center w-[359px] h-[387px] max-w-full max-h-full overflow-auto text-left text-13xl text-colors-neutral-white font-poppins">
@@ -14,12 +30,12 @@ const BurpeesPopup = ({ onClose }) => {
       </div>
       <button
         className="cursor-pointer [border:none] p-0 bg-[transparent] absolute h-[12.66%] w-[55.99%] top-[82.43%] right-[22.84%] bottom-[4.91%] left-[21.17%]"
-        onClick={onClose}
+        onClick={openExcercisePopUp}
       >
         <button className="cursor-pointer [border:none] p-0 bg-deepskyblue-200 absolute h-full w-full top-[0%] right-[0%] bottom-[0%] left-[0%] rounded-3xs" />
         <b
           className="absolute h-[51.02%] w-[68.16%] top-[24.49%] left-[22.89%] text-base inline-block font-poppins text-colors-neutral-white text-left cursor-pointer"
-          onClick={onClose}
+          onClick={openExcercisePopUp}
         >
           ADD TO PLAN
         </b>
@@ -40,6 +56,17 @@ const BurpeesPopup = ({ onClose }) => {
         />
       </button>
     </div>
+
+    {isExcercisePopUpOpen && (
+        <PortalPopup
+          overlayColor="rgba(113, 113, 113, 0.3)"
+          placement="Centered"
+          onOutsideClick={closeExercisePopUp}
+        >
+          <ExcercisePopUp onClose={closeExercisePopUp} />
+        </PortalPopup>
+      )}
+      
     </div>
   );
 };
