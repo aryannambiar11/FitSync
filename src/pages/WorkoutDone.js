@@ -30,7 +30,7 @@ const WorkoutDone = () => {
         onClick={onSignInButtonClick}
       >
         <div
-          className="absolute top-[0px] left-[109px] rounded-xl bg-deepskyblue-300 w-[120px] h-[59px] cursor-pointer"
+          className="absolute top-[0px] left-[0px] rounded-xl bg-deepskyblue-300 w-[337px] h-[59px] cursor-pointer"
           onClick={onRectangleClick}
         />
         <b className="absolute top-[15px] left-[calc(50%_-_20.5px)] text-base inline-block font-poppins text-colors-neutral-white text-left w-[60px] h-[29px]">
