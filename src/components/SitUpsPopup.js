@@ -63,7 +63,7 @@ const SitUpsPopup = ({ onClose }) => {
           placement="Centered"
           onOutsideClick={closeExercisePopUp}
         >
-          <ExcercisePopUp onClose={closeExercisePopUp} />
+          <ExcercisePopUp onClose={closeExercisePopUp} recommendedExerciseName="Sit Ups" />
         </PortalPopup>
       )}
 

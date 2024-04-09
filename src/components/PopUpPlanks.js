@@ -57,7 +57,7 @@ const PopUpPlanks = ({ onClose }) => {
           placement="Centered"
           onOutsideClick={closeExercisePopUp}
         >
-          <ExcercisePopUp onClose={closeExercisePopUp} />
+          <ExcercisePopUp onClose={closeExercisePopUp} recommendedExerciseName="Planks"/>
         </PortalPopup>
       )}
       
