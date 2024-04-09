@@ -9,7 +9,6 @@ const WorkoutPageChecklist = () => {
   const [isLoadTemplatePopupOpen, setLoadTemplatePopupOpen] = useState(true);
   const [loadedExercises, setLoadedExercises] = useState([]);
   const completedExerciseStyle = "bg-gray-700 rounded-lg"; // A shade of dark grey to symbolize completion
-  const completedTextStyle = "text-gray-400"
 
 
   const toggleChecked = (index) => {
@@ -79,7 +78,7 @@ let date = new Date().toLocaleDateString();
 
 
       <button
-          className="cursor-pointer [border:none] p-0 bg-[transparent] absolute h-[3.91%] w-[38.21%] top-[79%] right-[50%] bottom-[35.31%] left-[30%]"
+          className="cursor-pointer [border:none] p-0 bg-[transparent] absolute h-[3.91%] w-[38.21%] top-[79%] right-[50%] bottom-[35.31%] left-[10%]"
           onClick={openLoadTemplatePopup}
         >
           <div className="absolute h-full w-full top-[0%] right-[0%] bottom-[0%] left-[0%] rounded-3xs bg-deepskyblue-200 z-10 overflow-y-auto" />
@@ -88,9 +87,36 @@ let date = new Date().toLocaleDateString();
           </b>
           </button>
 
+          
+
       <div className="absolute h-[3.44%] w-[7.44%] top-[15.52%] right-[74.87%] bottom-[81.04%] left-[17.69%] rounded-[50%] bg-colors-neutral-white" />
       <div className="absolute h-[2.25%] w-[4.87%] top-[16.11%] right-[76.15%] bottom-[81.64%] left-[18.97%] rounded-[50%] bg-deepskyblue-200" />
       <div className="absolute h-[1.3%] w-[2.82%] top-[16.59%] right-[77.18%] bottom-[82.11%] left-[20%] rounded-[50%] bg-colors-neutral-white" />
+
+
+      <img
+        className="absolute h-[4.15%] w-[8.21%] top-[2.61%] right-[83.59%] bottom-[93.25%] left-[8.21%] max-w-full overflow-hidden max-h-full object-contain cursor-pointer"
+        alt=""
+        src="/back-button51.svg"
+        onClick={onBackButtonIconClick}
+      />
+
+<button
+          className="cursor-pointer [border:none] p-0 bg-[transparent] absolute h-[3.91%] w-[38.21%] top-[79%] right-[50%] bottom-[35.31%] left-[52%]"
+          onClick={onBackButtonIconClick}
+        >
+          <div className="absolute h-full w-full top-[0%] right-[0%] bottom-[0%] left-[0%] rounded-3xs bg-green-500 z-10 overflow-y-auto" />
+          <b className="absolute h-[78.79%] w-[90.6%] top-[12.12%] left-[5.37%] text-mini inline-block font-poppins text-transparent !bg-clip-text [background:linear-gradient(#fff,_#fff),_linear-gradient(#fff,_#fff),_linear-gradient(#fff,_#fff),_#fff] [-webkit-background-clip:text] [-webkit-text-fill-color:transparent] text-center z-10">
+            Finish Workout
+          </b>
+          </button>
+
+          
+
+      <div className="absolute h-[3.44%] w-[7.44%] top-[15.52%] right-[74.87%] bottom-[81.04%] left-[17.69%] rounded-[50%] bg-colors-neutral-white" />
+      <div className="absolute h-[2.25%] w-[4.87%] top-[16.11%] right-[76.15%] bottom-[81.64%] left-[18.97%] rounded-[50%] bg-deepskyblue-200" />
+      <div className="absolute h-[1.3%] w-[2.82%] top-[16.59%] right-[77.18%] bottom-[82.11%] left-[20%] rounded-[50%] bg-colors-neutral-white" />
+
 
       <img
         className="absolute h-[4.15%] w-[8.21%] top-[2.61%] right-[83.59%] bottom-[93.25%] left-[8.21%] max-w-full overflow-hidden max-h-full object-contain cursor-pointer"
