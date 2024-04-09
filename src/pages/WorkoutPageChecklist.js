@@ -7,6 +7,18 @@ import PortalPopup from "../components/PortalPopup";
 const WorkoutPageChecklist = () => {
   const navigate = useNavigate();
   const [isLoadTemplatePopupOpen, setLoadTemplatePopupOpen] = useState(true);
+  const [loadedExercises, setLoadedExercises] = useState([]);
+  const completedExerciseStyle = "bg-gray-700 rounded-lg"; // A shade of dark grey to symbolize completion
+  const completedTextStyle = "text-gray-400"
+
+
+  const toggleChecked = (index) => {
+    setLoadedExercises((prevExercises) =>
+      prevExercises.map((exercise, i) =>
+        i === index ? { ...exercise, checked: !exercise.checked } : exercise
+      )
+    );
+  };
 
   const onBackButtonIconClick = useCallback(() => {
     navigate("/home-page");
@@ -34,6 +46,7 @@ const WorkoutPageChecklist = () => {
   const closeLoadTemplatePopup = useCallback(() => {
     setLoadTemplatePopupOpen(false);
   }, []);
+  
 
   // This arrangement can be altered based on how we want the date's format to appear.
 let date = new Date().toLocaleDateString();
@@ -63,6 +76,7 @@ let date = new Date().toLocaleDateString();
         <div className="absolute top-[50px] left-[26px] inline-block w-[400px] h-[30px]">{date}</div>
         <div className="absolute top-[85px] left-[65px] inline-block w-[400px] h-[30px]">{dailyGoal}</div>
       </div>
+
 
       <button
           className="cursor-pointer [border:none] p-0 bg-[transparent] absolute h-[3.91%] w-[38.21%] top-[79%] right-[50%] bottom-[35.31%] left-[30%]"
@@ -94,6 +108,37 @@ let date = new Date().toLocaleDateString();
           <LoadTemplatePopup onClose={closeLoadTemplatePopup} onTemplateLoad={onTemplateLoad} />
         </PortalPopup>
       )}
+
+<div className="absolute h-[37%] w-[78.97%] top-[30%] right-[20%] bottom-[30%] left-[11.03%] bg-black z-10 overflow-y-auto ">
+            {loadedExercises.length > 0 ? (
+              loadedExercises.map((exercise, index) => (
+                <div key={index} className="text-colors-neutral-white text-base mb-2 p-2 flex items-center justify-between relative">
+                {exercise.sets && exercise.reps
+                  ? `${exercise.name} ${exercise.sets}x${exercise.reps}`
+                  : `${exercise.name} - ${exercise.minutes} m : ${exercise.seconds} s`}
+            <div
+              key={index}
+              className={`text-colors-neutral-white text-base mb-2 p-2 flex items-center justify-between relative ${
+                exercise.checked ? completedExerciseStyle : ""
+              }`}
+            >
+<label className="inline-flex items-center">
+                <input
+                  type="checkbox"
+                  className="form-checkbox h-5 w-5 text-green-600 rounded border-gray-300"
+                  checked={exercise.checked || false}
+                  onChange={() => toggleChecked(index)}
+                />
+              </label>
+              </div>
+                </div>
+              ))
+            ) : (
+              <div className="text-colors-neutral-black text-base p-2">
+                No exercises loaded
+              </div>
+            )}
+          </div>
 
     </div>
   );
