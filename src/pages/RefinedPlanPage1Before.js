@@ -25,8 +25,6 @@ const RefinedPlanPage1Before = () => {
   const [isStairsPopupOpen, setStairsPopupOpen] = useState(false);
   const [isSitUpsPopupOpen, setSitUpsPopupOpen] = useState(false);
   const [loadedExercises, setLoadedExercises] = useState([]);
-  const [initialExercise, setInitialExercise] = useState(null);
-  const [isEditingExercise, setIsEditingExercise] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -61,20 +59,6 @@ const RefinedPlanPage1Before = () => {
 
     // Optionally, you can also update the state of exercises if needed
     setLoadedExercises(updatedExercises);
-  };
-
-  // Function to handle editing an exercise
-  const editExercise = (exercise) => {
-    setInitialExercise(exercise);
-    setIsEditingExercise(true);
-    setExcercisePopUpOpen(true);
-  };
-
-  // Function to handle editing an exercise
-  const addExercise = () => {
-    setInitialExercise(null);
-    setIsEditingExercise(false);
-    setExcercisePopUpOpen(true);
   };
 
   const [date, setDate] = useState(() => {
@@ -223,7 +207,7 @@ const RefinedPlanPage1Before = () => {
                   : `${exercise.name} - ${exercise.minutes} m : ${exercise.seconds} s`}
 
                 <button
-                onClick={() => editExercise(exercise)}
+                onClick={() => deleteExercise(index)}
                 className="absolute right-12 text-red-500 bg-transparent border-none font-semibold text-sm leading-none cursor-pointer outline-none"
               >
                   <img
@@ -276,7 +260,7 @@ const RefinedPlanPage1Before = () => {
         </div>
         <button
           className="cursor-pointer [border:none] p-0 bg-[transparent] absolute h-[2.84%] w-[6.15%] top-[18.36%] right-[80.51%] bottom-[78.79%] left-[13.33%]"
-          onClick={() => addExercise()}
+          onClick={openExcercisePopUp}
         >
           <div className="absolute h-full w-full top-[0%] right-[0%] bottom-[0%] left-[0%] rounded-[50%] bg-gainsboro-200 box-border border-[2px] border-solid border-colors-neutral-white" />
           <div className="absolute h-[7.92%] w-[52.08%] top-[45.83%] right-[23.75%] bottom-[46.25%] left-[24.17%] rounded-12xs bg-colors-neutral-white" />
@@ -380,7 +364,7 @@ const RefinedPlanPage1Before = () => {
           className="cursor-pointer [border:none] p-0 bg-[transparent] absolute h-[3.91%] w-[38.21%] top-[60.78%] right-[10%] bottom-[35.31%] left-[51.79%]"
           onClick={openNameTemplatePopup}
         >
-          <div className="absolute h-full w-full top-[0%] right-[0%] bottom-[0%] left-[0%] rounded-3xs bg-deepskyblue-200 z-10" />
+          <div className="absolute h-full w-full top-[0%] right-[0%] bottom-[0%] left-[0%] rounded-3xs bg-green-500 z-10" />
           <b className="absolute h-[78.79%] w-[90.6%] top-[12.12%] left-[5.37%] text-mini inline-block font-poppins text-transparent !bg-clip-text [background:linear-gradient(#fff,_#fff),_linear-gradient(#fff,_#fff),_linear-gradient(#fff,_#fff),_#fff] [-webkit-background-clip:text] [-webkit-text-fill-color:transparent] text-center z-10" >
             Save Template
           </b>
@@ -424,8 +408,7 @@ const RefinedPlanPage1Before = () => {
           placement="Centered"
           onOutsideClick={closeExcercisePopUp}
         >
-          <ExcercisePopUp onClose={closeExcercisePopUp} 
-          initialExercise={isEditingExercise ? initialExercise : null} />
+          <ExcercisePopUp onClose={closeExcercisePopUp} />
         </PortalPopup>
       )}
       {isExcercisePopUp1Open && (
