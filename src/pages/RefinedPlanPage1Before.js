@@ -426,7 +426,7 @@ const RefinedPlanPage1Before = () => {
           placement="Centered"
           onOutsideClick={closeExcercisePopUp1}
         >
-          <ExcercisePopUp onClose={closeExcercisePopUp1} />
+          <ExcercisePopUp onClose={closeExcercisePopUp1} recommendedExerciseName="Planks" />
         </PortalPopup>
       )}
       {isExcercisePopUp2Open && (
@@ -435,7 +435,7 @@ const RefinedPlanPage1Before = () => {
           placement="Centered"
           onOutsideClick={closeExcercisePopUp2}
         >
-          <ExcercisePopUp onClose={closeExcercisePopUp2} />
+          <ExcercisePopUp onClose={closeExcercisePopUp2} recommendedExerciseName="Sit Ups" />
         </PortalPopup>
       )}
       {isExcercisePopUp3Open && (
@@ -444,7 +444,7 @@ const RefinedPlanPage1Before = () => {
           placement="Centered"
           onOutsideClick={closeExcercisePopUp3}
         >
-          <ExcercisePopUp onClose={closeExcercisePopUp3} />
+          <ExcercisePopUp onClose={closeExcercisePopUp3} recommendedExerciseName="Burpees" />
         </PortalPopup>
       )}
       {isExcercisePopUp4Open && (
@@ -453,7 +453,7 @@ const RefinedPlanPage1Before = () => {
           placement="Centered"
           onOutsideClick={closeExcercisePopUp4}
         >
-          <ExcercisePopUp onClose={closeExcercisePopUp4} />
+          <ExcercisePopUp onClose={closeExcercisePopUp4} recommendedExerciseName="Stairs" />
         </PortalPopup>
       )}
       {isLoadTemplatePopupOpen && (

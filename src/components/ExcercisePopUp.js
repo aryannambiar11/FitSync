@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const ExercisePopup = ({ onClose }) => {
+const ExercisePopup = ({ onClose, recommendedExerciseName }) => {
   const [sets, setSets] = useState(0);
   const [reps, setReps] = useState(0);
 
@@ -34,7 +34,7 @@ const ExercisePopup = ({ onClose }) => {
   // Save handler
   const handleSave = () => {
     const newExerciseData = {
-      name: document.getElementById("exercise-name").value,
+      name: recommendedExerciseName || document.getElementById("exercise-name").value,
       sets: sets,
       reps: reps,
       minutes: parseInt(document.getElementById("time-minutes").value) || 0,
@@ -166,10 +166,18 @@ const ExercisePopup = ({ onClose }) => {
       </style>
       <div className="exercise-popup">
         <div className="exercise-popup-content">
-          <div className="exercise-field">
-            <label htmlFor="exercise-name">Exercise Name:</label>
-            <input id="exercise-name" placeholder="Press Here to Type" />
-          </div>
+        {recommendedExerciseName && (
+            <div className="exercise-field">
+              <label htmlFor="exercise-name">Exercise Name:</label>
+              <input id="exercise-name" value={recommendedExerciseName} readOnly />
+            </div>
+          )}
+          {!recommendedExerciseName && (
+            <div className="exercise-field">
+              <label htmlFor="exercise-name">Exercise Name:</label>
+              <input id="exercise-name" placeholder="Press Here to Type" />
+            </div>
+          )}
           <div className="exercise-field">
             <label htmlFor="sets">Sets:</label>
             <div className="counter-controls">
