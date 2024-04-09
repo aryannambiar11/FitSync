@@ -203,6 +203,13 @@ const ExercisePopup = ({ onClose, recommendedExerciseName, initialExercise }) =>
             width: 100px;
           }
 
+          .exercise-or-separator {
+            text-align: center;
+            color: white;
+            margin: 10px 0;
+            padding-top: 20px;
+          }
+
           .cancel-button {
             background: red;
           }
@@ -258,6 +265,9 @@ const ExercisePopup = ({ onClose, recommendedExerciseName, initialExercise }) =>
               <button onClick={incrementReps}>+</button>
             </div>
           </div>
+          <div className="exercise-field">
+          <div className="exercise-or-separator">OR</div>
+        </div>
           <div className="exercise-field">
             <label htmlFor="time">Time:</label>
             <div className="time-inputs flex items-center justify-center">
