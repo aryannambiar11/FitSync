@@ -204,15 +204,7 @@ const RefinedPlanPage1Before = () => {
         <div className="absolute h-[4.98%] w-[49.23%] top-[69.19%] left-[11.03%] text-5xl text-colors-neutral-white inline-block">
           RECOMMENDED:
         </div>
-        <DatePicker
-          className="absolute h-[4.62%] w-[48.97%] top-[11.02%] right-[10%] bottom-[84.36%] left-[41.03%]"
-          size="large"
-          value={date}
-          onChange={handleDateChange}
-          autoFocus={true}
-          bordered={true}
-          allowClear={false}
-        />
+        
          
          <div className="absolute h-[37%] w-[78.97%] top-[23%] right-[20%] bottom-[30%] left-[11.03%] bg-black box-border border-[1px] border-solid border-colors-neutral-white z-10 overflow-y-auto ">
             {loadedExercises.length > 0 ? (
