@@ -6,13 +6,22 @@ import PortalPopup from "../components/PortalPopup";
 
 const WorkoutPageChecklist = () => {
   const navigate = useNavigate();
-  const [isLoadTemplatePopupOpen, setLoadTemplatePopupOpen] = useState(true);
+  const [isLoadTemplatePopupOpen, setLoadTemplatePopupOpen] = useState(false);
   const [loadedExercises, setLoadedExercises] = useState([]);
   const completedExerciseStyle = "bg-gray-700 rounded-lg"; // A shade of dark grey to symbolize completion
+  const sessionStorageKey = 'loadedExercises'; // Use a consistent key for sessionStorage operations
   const finishWorkout = () => {
+    sessionStorage.removeItem(sessionStorageKey);
     setLoadedExercises([]);
     navigate("/home-page");
   };
+  useEffect(() => {
+    // Load stored exercises from sessionStorage when the component mounts
+    const storedExercises = sessionStorage.getItem('loadedExercises');
+    if (storedExercises) {
+      setLoadedExercises(JSON.parse(storedExercises));
+    }
+  }, []);
 
   const toggleChecked = (index) => {
     setLoadedExercises((prevExercises) =>
@@ -21,6 +30,27 @@ const WorkoutPageChecklist = () => {
       )
     );
   };
+
+  useEffect(() => {
+    const handleStorageChange = () => {
+      const savedExercises = sessionStorage.getItem('loadedExercises');
+      if (savedExercises) {
+        setLoadedExercises(JSON.parse(savedExercises));
+      }
+    };
+
+    // Event listener for custom storage change event
+    window.addEventListener('storageChange', handleStorageChange);
+
+    // Manually call handleStorageChange to load exercises on mount
+    handleStorageChange();
+
+    // Cleanup
+    return () => {
+      window.removeEventListener('storageChange', handleStorageChange);
+    };
+  }, []);
+  
 
   const onBackButtonIconClick = useCallback(() => {
     navigate("/home-page");
@@ -37,8 +67,9 @@ const WorkoutPageChecklist = () => {
 
   const dailyGoal = `${userGoalData.dailyGoal || ''}`; 
 
-  const onTemplateLoad = (loadedExercises) => {
-    setLoadedExercises(loadedExercises);
+  const onTemplateLoad = (newExercises) => {
+    sessionStorage.setItem(sessionStorageKey, JSON.stringify(newExercises)); // Save new exercises to sessionStorage
+    setLoadedExercises(newExercises);
   };
 
   const openLoadTemplatePopup = useCallback(() => {
