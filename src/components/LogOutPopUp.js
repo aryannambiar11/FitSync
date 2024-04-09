@@ -24,16 +24,14 @@ const LogOutPopUp = ({ onClose }) => {
           alt=""
           src="/rectangle-510.svg"
         />
-        <b className="absolute h-[77.4%] w-[82%] top-[8.29%] left-[6.69%] text-base inline-block font-poppins text-colors-neutral-white text-center">
-          Save
-        </b>
+
         <div className="absolute h-[57.63%] w-[58.54%] top-[21.09%] right-[19.15%] bottom-[21.28%] left-[22.31%]">
           <img
             className="absolute h-full w-full top-[0%] right-[0%] bottom-[0%] left-[0%] rounded-3xs max-w-full overflow-hidden max-h-full"
             alt=""
             src="/rectangle-511.svg"
           />
-          <b className="absolute h-[77.45%] w-[82%] top-[8.5%] left-[6.7%] text-base inline-block font-poppins text-colors-neutral-white text-center">
+          <b className="absolute h-[77.45%] w-[82%] top-[9.5%] left-[6.7%] text-base inline-block font-poppins text-colors-neutral-white text-center">
             YES
           </b>
         </div>

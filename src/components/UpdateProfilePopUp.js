@@ -36,7 +36,7 @@ const UpdateProfilePopUp = ({ onClose, onYesButtonClick }) => {
             src="/rectangle-510.svg"
           />
           <b className="absolute h-[77.4%] w-[82%] top-[8.47%] left-[6.69%] text-base inline-block font-poppins text-colors-neutral-white text-center">
-            Save
+            
           </b>
           <div className="absolute h-[57.63%] w-[58.54%] top-[21.28%] right-[19.15%] bottom-[21.09%] left-[22.31%]">
             <img
