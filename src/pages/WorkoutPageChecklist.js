@@ -13,7 +13,7 @@ const WorkoutPageChecklist = () => {
   const finishWorkout = () => {
     sessionStorage.removeItem(sessionStorageKey);
     setLoadedExercises([]);
-    navigate("/home-page");
+    navigate("/workout-done");
   };
   useEffect(() => {
     // Load stored exercises from sessionStorage when the component mounts

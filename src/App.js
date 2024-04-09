@@ -23,6 +23,7 @@ import WorkoutPageChecklist from "./pages/WorkoutPageChecklist";
 import ProfilePageRefined from "./pages/ProfilePageRefined";
 import EditProfilePage from "./pages/EditProfilePage";
 import TrackPage1 from "./pages/TrackPage1";
+import WorkoutDone from "./pages/WorkoutDone";
 
 function App() {
   const action = useNavigationType();
@@ -112,7 +113,11 @@ function App() {
         title = "";
         metaDescription = "";
         break;
-    }
+      case "/workout-done":
+        title = "";
+        metaDescription = "";
+        break;
+      }
 
     if (title) {
       document.title = title;
@@ -157,6 +162,7 @@ function App() {
       <Route path="/profile-page-refined" element={<ProfilePageRefined />} />
       <Route path="/edit-profile-page" element={<EditProfilePage />} />
       <Route path="/track-page" element={<TrackPage1 />} />
+      <Route path="/workout-done" element={<WorkoutDone />} />
     </Routes>
   );
 }
