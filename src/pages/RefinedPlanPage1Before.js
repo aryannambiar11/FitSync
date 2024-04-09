@@ -48,6 +48,12 @@ const RefinedPlanPage1Before = () => {
     };
   }, []);
 
+  const deleteExercise = (indexToDelete) => {
+    setLoadedExercises((prevExercises) =>
+      prevExercises.filter((_, index) => index !== indexToDelete)
+    );
+  };
+
   const [date, setDate] = useState(() => {
     const savedDate = sessionStorage.getItem('selectedDate');
     return savedDate ? moment(savedDate) : moment();
@@ -179,6 +185,7 @@ const RefinedPlanPage1Before = () => {
     <>
       <div className="w-full relative h-[844px] text-left text-xl text-black font-poppins">
         <div className="absolute h-full w-full top-[0%] right-[0%] bottom-[0%] left-[0%] rounded-17xl bg-black box-border border-[1px] border-solid border-black" />
+        
         <div className="absolute h-[4.98%] w-[49.23%] top-[69.19%] left-[11.03%] text-5xl text-colors-neutral-white inline-block">
           RECOMMENDED:
         </div>
@@ -195,10 +202,21 @@ const RefinedPlanPage1Before = () => {
          <div className="absolute h-[37%] w-[78.97%] top-[23%] right-[10%] bottom-[30%] left-[11.03%] bg-black box-border border-[1px] border-solid border-colors-neutral-white z-10 overflow-y-auto ">
             {loadedExercises.length > 0 ? (
               loadedExercises.map((exercise, index) => (
-                <div key={index} className="text-colors-neutral-white text-base mb-2 p-2">
-                   {exercise.sets && exercise.reps
+                <div key={index} className="text-colors-neutral-white text-base mb-2 p-2 flex items-center justify-between">
+                {exercise.sets && exercise.reps
                   ? `${exercise.name} ${exercise.sets}x${exercise.reps}`
                   : `${exercise.name} - ${exercise.minutes} m : ${exercise.seconds} s`}
+
+                <button
+                onClick={() => deleteExercise(index)}
+                className="text-red-500 bg-transparent border-none font-semibold text-sm leading-none cursor-pointer outline-none"
+              >
+                  <img
+                  src="/pencil1@2x.png"
+                  alt="Delete Icon"
+                  className="w-4 h-4"/>
+                </button>
+
 
                 </div>
               ))
@@ -206,15 +224,18 @@ const RefinedPlanPage1Before = () => {
               <div className="text-colors-neutral-black text-base p-2">
                 No exercises loaded
               </div>
+
+              
             )}
           </div>
       
         <img
-          className="absolute h-[4.15%] w-[8.21%] top-[1.61%] right-[80%] bottom-[93.25%] left-[11.79%] max-w-full overflow-hidden max-h-full object-contain cursor-pointer"
+          className="absolute h-[4.15%] w-[8.21%] top-[3.61%] right-[90%] bottom-[93.25%] left-[8.79%] max-w-full overflow-hidden max-h-full object-contain cursor-pointer"
           alt=""
           src="/back-button51.svg"
           onClick={onBackButtonIconClick}
         />
+
         <img
           className="absolute h-[6.75%] w-[13.59%] top-[1.3%] right-[6.41%] bottom-[91.94%] left-[80%] rounded-[50%] max-w-full overflow-hidden max-h-full object-cover cursor-pointer"
           alt=""
