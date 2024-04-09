@@ -49,9 +49,17 @@ const RefinedPlanPage1Before = () => {
   }, []);
 
   const deleteExercise = (indexToDelete) => {
-    setLoadedExercises((prevExercises) =>
-      prevExercises.filter((_, index) => index !== indexToDelete)
-    );
+  // Get the current list of exercises from sessionStorage
+    const currentExercises = JSON.parse(sessionStorage.getItem('exerciseData')) || [];
+
+    // Modify the list by filtering out the exercise at indexToDelete
+    const updatedExercises = currentExercises.filter((_, index) => index !== indexToDelete);
+
+    // Update sessionStorage with the modified list
+    sessionStorage.setItem('exerciseData', JSON.stringify(updatedExercises));
+
+    // Optionally, you can also update the state of exercises if needed
+    setLoadedExercises(updatedExercises);
   };
 
   const [date, setDate] = useState(() => {
@@ -199,22 +207,32 @@ const RefinedPlanPage1Before = () => {
           allowClear={false}
         />
          
-         <div className="absolute h-[37%] w-[78.97%] top-[23%] right-[10%] bottom-[30%] left-[11.03%] bg-black box-border border-[1px] border-solid border-colors-neutral-white z-10 overflow-y-auto ">
+         <div className="absolute h-[37%] w-[78.97%] top-[23%] right-[20%] bottom-[30%] left-[11.03%] bg-black box-border border-[1px] border-solid border-colors-neutral-white z-10 overflow-y-auto ">
             {loadedExercises.length > 0 ? (
               loadedExercises.map((exercise, index) => (
-                <div key={index} className="text-colors-neutral-white text-base mb-2 p-2 flex items-center justify-between">
+                <div key={index} className="text-colors-neutral-white text-base mb-2 p-2 flex items-center justify-between relative">
                 {exercise.sets && exercise.reps
                   ? `${exercise.name} ${exercise.sets}x${exercise.reps}`
                   : `${exercise.name} - ${exercise.minutes} m : ${exercise.seconds} s`}
 
                 <button
                 onClick={() => deleteExercise(index)}
-                className="text-red-500 bg-transparent border-none font-semibold text-sm leading-none cursor-pointer outline-none"
+                className="absolute right-12 text-red-500 bg-transparent border-none font-semibold text-sm leading-none cursor-pointer outline-none"
               >
                   <img
                   src="/pencil1@2x.png"
                   alt="Delete Icon"
-                  className="w-4 h-4"/>
+                  className="w-6 h-6"/>
+                </button>
+
+                <button
+                onClick={() => deleteExercise(index)}
+                className="text-red-500 bg-transparent border-none font-semibold text-sm leading-none cursor-pointer outline-none"
+              >
+                  <img
+                  src="/deleteButton.png"
+                  alt="Delete Icon"
+                  className="w-6 h-6"/>
                 </button>
 
 
