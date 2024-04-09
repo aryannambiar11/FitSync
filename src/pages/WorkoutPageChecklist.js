@@ -24,11 +24,11 @@ const WorkoutPageChecklist = () => {
   }, []);
 
   const toggleChecked = (index) => {
-    setLoadedExercises((prevExercises) =>
-      prevExercises.map((exercise, i) =>
-        i === index ? { ...exercise, checked: !exercise.checked } : exercise
-      )
+    const updatedExercises = loadedExercises.map((exercise, i) =>
+      i === index ? { ...exercise, checked: !exercise.checked } : exercise
     );
+    sessionStorage.setItem(sessionStorageKey, JSON.stringify(updatedExercises));
+    setLoadedExercises(updatedExercises);
   };
 
   useEffect(() => {
