@@ -1,5 +1,10 @@
 
-  # FitSync
+  # FitSync - CPSC 481 T05-2
+  - Jazib Khan - jazib.khan@ucalgary.ca
+  - Aryan Nambiar - aryan.nambiar@ucalgary.ca
+  - Katelan NG - katelan.ng@ucalgary.ca 
+  - Hima Rajesh - hima.rajesh1@ucalgary.ca
+  
   This fitness app is optimal to be used on an iPhone 12 Pro (390 x 844)
   
   Please use the following instructions:
