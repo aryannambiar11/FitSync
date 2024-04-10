@@ -15,7 +15,7 @@ const TrackPage1 = () => {
 
   return (
     <div className="w-full relative h-[894px] text-left text-13xl text-colors-neutral-white font-poppins">
-      <div className="absolute h-full w-full top-[0%] right-[0%] bottom-[0%] left-[0%] rounded-17xl bg-black box-border border-[1px] border-solid border-black" />
+      <div className="absolute h-full w-full top-[0%] right-[0%] bottom-[0%] left-[0%] bg-black box-border border-[1px] border-solid border-black" />
       <div
         className="absolute h-[5.29%] w-[47.43%] top-[68.57%] right-[26.27%] bottom-[26.14%] left-[26.3%] cursor-pointer text-center text-3xl"
         onClick={onLoginButtonContainerClick}

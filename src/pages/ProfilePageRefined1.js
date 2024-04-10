@@ -37,7 +37,7 @@ const ProfilePageRefined1 = () => {
   return (
     <>
       <div className="w-full relative h-[835px] text-left text-xl text-colors-neutral-white font-poppins">
-        <div className="absolute h-full w-full top-[-16.59%] right-[7.96%] bottom-[16.59%] left-[-7.96%] rounded-17xl bg-black box-border border-[1px] border-solid border-black" />
+        <div className="absolute h-full w-full top-[-16.59%] right-[7.96%] bottom-[16.59%] left-[-7.96%] bg-black box-border border-[1px] border-solid border-black" />
         <img
           className="absolute h-[4.26%] w-[10.52%] top-[3.56%] right-[2.83%] bottom-[92.18%] left-[86.66%] max-w-full overflow-hidden max-h-full object-cover hidden"
           alt=""

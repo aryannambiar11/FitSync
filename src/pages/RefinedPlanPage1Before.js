@@ -199,7 +199,7 @@ const RefinedPlanPage1Before = () => {
   return (
     <>
       <div className="w-full relative h-[844px] text-left text-xl text-black font-poppins">
-        <div className="absolute h-full w-full top-[0%] right-[0%] bottom-[0%] left-[0%] rounded-17xl bg-black box-border border-[1px] border-solid border-black" />
+        <div className="absolute h-full w-full top-[0%] right-[0%] bottom-[0%] left-[0%] bg-black box-border border-[1px] border-solid border-black" />
         
         <div className="absolute h-[4.98%] w-[49.23%] top-[69.19%] left-[11.03%] text-5xl text-colors-neutral-white inline-block">
           RECOMMENDED:

@@ -45,7 +45,7 @@ const ResetPw = () => {
   }, [navigate]);
 
   return (
-    <div className="w-full relative rounded-17xl bg-black h-[844px] overflow-hidden flex flex-col items-start justify-start p-2.5 box-border gap-[10px] text-left text-base text-colors-neutral-white font-poppins">
+    <div className="w-full relative bg-black h-[844px] overflow-hidden flex flex-col items-start justify-start p-2.5 box-border gap-[10px] text-left text-base text-colors-neutral-white font-poppins">
       <div className="w-[244px] absolute !m-[0] top-[118px] left-[25px] text-xl font-semibold inline-block h-[29px] shrink-0 z-[0]">
         Set a new password
       </div>

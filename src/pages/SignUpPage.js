@@ -38,7 +38,7 @@ const SignUpPage = () => {
   }, [navigate]);
 
   return (
-    <div className="w-full relative rounded-17xl bg-black h-[844px] overflow-hidden flex flex-col items-start justify-start p-2.5 box-border gap-[10px] text-left text-base text-colors-neutral-white font-poppins">
+    <div className="w-full relative bg-black h-[844px] overflow-hidden flex flex-col items-start justify-start p-2.5 box-border gap-[10px] text-left text-base text-colors-neutral-white font-poppins">
       <img
         className="self-stretch relative max-w-full overflow-hidden h-[101px] shrink-0 object-cover z-[0]"
         alt=""

@@ -13,7 +13,7 @@ const WorkoutDone = () => {
   }, [navigate]);
 
   return (
-    <div className="w-full relative rounded-17xl bg-black h-[844px] overflow-hidden text-center text-13xl text-colors-neutral-white font-poppins">
+    <div className="w-full relative bg-black h-[844px] overflow-hidden text-center text-13xl text-colors-neutral-white font-poppins">
       <div className="absolute top-[181px] left-[121px] rounded-sm h-[133px] flex flex-col items-start justify-start gap-[10px]">
         <div className="w-[147px] relative rounded-[50%] bg-gainsboro-100 h-[133px] z-[0]" />
         <img

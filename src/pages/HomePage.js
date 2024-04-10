@@ -108,7 +108,7 @@ const HomePage = () => {
 
   return (
     <div className="w-full relative h-[844px] text-center text-xl text-colors-neutral-white font-poppins">
-      <div className="absolute h-full w-full top-[0%] right-[0%] bottom-[0%] left-[0%] rounded-17xl bg-black box-border border-[1px] border-solid border-black" />
+      <div className="absolute h-full w-full top-[0%] right-[0%] bottom-[0%] left-[0%] bg-black box-border border-[1px] border-solid border-black" />
       <button
         className="cursor-pointer [border:none] p-0 bg-[transparent] absolute h-[6.87%] w-[86.41%] top-[68.13%] right-[7.18%] bottom-[25%] left-[6.41%]"
         onClick={onWorkOutButtonClick}

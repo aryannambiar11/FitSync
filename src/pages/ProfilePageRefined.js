@@ -56,7 +56,7 @@ const ProfilePageRefined = () => {
   return (
     <>
       <div className="w-full relative h-[844px] text-left text-xl text-colors-neutral-white font-poppins">
-        <div className="absolute h-full w-full top-[0%] right-[0.26%] bottom-[0%] left-[-0.26%] rounded-17xl bg-black box-border border-[1px] border-solid border-black" />
+        <div className="absolute h-full w-full top-[0%] right-[0.26%] bottom-[0%] left-[-0.26%] bg-black box-border border-[1px] border-solid border-black" />
         <button
           className="cursor-pointer [border:none] p-0 bg-[transparent] absolute h-[4.27%] w-[10.51%] top-[8.53%] right-[3.85%] bottom-[87.2%] left-[85.64%] bg-[url('/public/pencil3@2x.png')] bg-cover bg-no-repeat bg-[top]"
           onClick={onPencilClick}

@@ -86,7 +86,7 @@ let date = new Date().toLocaleDateString();
 
   return (
     <div className="w-full relative h-[844px] text-left text-[28px] text-colors-neutral-white font-inter">
-      <div className="absolute h-full w-full top-[0%] right-[0%] bottom-[0%] left-[0%] rounded-17xl bg-black box-border border-[1px] border-solid border-black" />
+      <div className="absolute h-full w-full top-[0%] right-[0%] bottom-[0%] left-[0%] bg-black box-border border-[1px] border-solid border-black" />
       <img
         className="absolute h-[47.87%] w-[83.85%] top-[28.79%] right-[8.21%] bottom-[23.34%] left-[7.95%] max-w-full overflow-hidden max-h-full"
         alt=""

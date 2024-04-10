@@ -11,7 +11,7 @@ const ProfilePageChangePic = () => {
   return (
     <div className="w-full relative h-[844px] text-left text-base text-colors-neutral-white font-poppins">
       <div className="absolute top-[-2px] left-[0px] w-[390px] h-[844px] text-xl">
-        <div className="absolute h-full w-full top-[0%] right-[0%] bottom-[0%] left-[0%] rounded-17xl bg-black box-border border-[1px] border-solid border-black" />
+        <div className="absolute h-full w-full top-[0%] right-[0%] bottom-[0%] left-[0%] bg-black box-border border-[1px] border-solid border-black" />
         <img
           className="absolute h-[4.27%] w-[10.51%] top-[5.81%] right-[2.82%] bottom-[89.93%] left-[86.67%] max-w-full overflow-hidden max-h-full object-cover hidden"
           alt=""

@@ -99,7 +99,7 @@ const EditProfilePage = () => {
   return (
     <>
       <div className="w-full relative h-[844px] text-left text-xl text-colors-neutral-white font-poppins">
-        <div className="absolute h-full w-full top-[0%] right-[0.26%] bottom-[0%] left-[-0.26%] rounded-17xl bg-black box-border border-[1px] border-solid border-black" />
+        <div className="absolute h-full w-full top-[0%] right-[0.26%] bottom-[0%] left-[-0.26%] bg-black box-border border-[1px] border-solid border-black" />
         <div className="absolute h-[4.5%] w-[24.36%] top-[63.39%] left-[7.69%] font-medium inline-block">
           Units:
         </div>

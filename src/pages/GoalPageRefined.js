@@ -80,8 +80,8 @@ const GoalPageRefined = () => {
         <div className="absolute h-[4.98%] w-[36.15%] top-[43.72%] left-[9.74%] text-black inline-block">
           Daily Goal:
         </div>
-        <div className="absolute h-full w-full top-[0%] right-[0%] bottom-[0%] left-[0%] rounded-17xl bg-black box-border border-[1px] border-solid border-black" />
-        <div className="absolute h-full w-full top-[0%] right-[0%] bottom-[0%] left-[0%] rounded-17xl bg-black box-border border-[1px] border-solid border-black" />
+        <div className="absolute h-full w-full top-[0%] right-[0%] bottom-[0%] left-[0%] bg-black box-border border-[1px] border-solid border-black" />
+        <div className="absolute h-full w-full top-[0%] right-[0%] bottom-[0%] left-[0%] bg-black box-border border-[1px] border-solid border-black" />
         <div className="absolute h-[4.15%] w-[30%] top-[2.61%] right-[35.13%] bottom-[93.25%] left-[34.87%] text-center text-black">
           <img
             className="absolute h-full w-[99.91%] top-[0%] right-[0.09%] bottom-[0%] left-[0%] max-w-full overflow-hidden max-h-full"
