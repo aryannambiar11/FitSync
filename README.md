@@ -23,3 +23,9 @@
   1) Press <code>Ctrl</code>+<code>Shift</code>+<code>I</code>
   2) Set the dimensions at the top of the screen to iPhone 12 Pro
 
+  ## To view on Safari:
+  1) Press <code>Option</code>+<code>Command</code>+<code>I</code> to open Developer Tools.
+  2) Click on the "Responsive Design Mode" icon in the Developer Tools toolbar (or press <code>Command</code>+<code>Shift</code>+<code>R</code>).
+  3) Set the device dimensions to iPhone 12 Pro.
+
+
