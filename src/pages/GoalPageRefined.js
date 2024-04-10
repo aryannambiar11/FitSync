@@ -76,6 +76,16 @@ const GoalPageRefined = () => {
 
   return (
     <>
+      <style>
+        {`
+          /* Disable zooming */
+          body {
+            touch-action: manipulation;
+            -ms-touch-action: manipulation;
+            overflow: hidden;
+          }
+        `}
+      </style>
       <div className="w-full relative shadow-[0px_4px_4px_rgba(0,_0,_0,_0.25)] h-[844px] text-left text-5xl text-colors-neutral-white font-poppins">
         <div className="absolute h-[4.98%] w-[36.15%] top-[43.72%] left-[9.74%] text-black inline-block">
           Daily Goal:
